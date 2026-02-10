@@ -21,10 +21,50 @@
     .nav button { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
     .nav button:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
     @media (max-width: 768px) { .content { padding: 1rem; } .nav { bottom: 1rem; right: 1rem; } .nav button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+  
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+    }
+    
+    .back-btn a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .back-btn a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateX(-4px);
+    }
+    
+    @media (max-width: 768px) {
+      .back-btn { top: 1rem; left: 1rem; }
+      .back-btn a { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
+    <!-- 返回按鈕 -->
+  <div class="back-btn">
+    <a href="index.html">
+      <span>←</span>
+      <span>返回資源中心</span>
+    </a>
+  </div>
+
+<div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
