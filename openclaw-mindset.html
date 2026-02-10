@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>OpenClaw 使用心法 - 人類如何與 AI 高效合作</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+    * { font-family: 'Noto Sans TC', sans-serif; touch-action: manipulation; }
+    body { background: #000; overflow: hidden; }
+    .slide { width: 100vw; height: 100vh; display: none; position: relative; background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%); overflow-y: auto; }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s ease-in-out infinite; pointer-events: none; }
+    .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); top: -100px; right: -100px; }
+    .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); bottom: -50px; left: -50px; animation-delay: -5s; }
+    .orb-3 { width: 250px; height: 250px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: -10s; }
+    @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 50px) scale(0.9); } }
+    .content { position: relative; z-index: 10; text-align: center; padding: 2rem; max-width: 1200px; width: 100%; }
+    .nav { position: fixed; bottom: 2rem; right: 2rem; z-index: 100; display: flex; gap: 1rem; align-items: center; }
+    .nav button { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+    .nav button:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+    @media (max-width: 768px) { .content { padding: 1rem; } .nav { bottom: 1rem; right: 1rem; } .nav button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Slide 1: 封面 -->
+  <div class="slide active">
+    <div class="content">
+      <div class="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        OpenClaw
+      </div>
+      <div class="text-3xl md:text-5xl font-bold text-white mb-8">
+        使用心法
+      </div>
+      <div class="text-xl md:text-2xl text-gray-300 mb-4">
+        人類如何與 AI 高效合作
+      </div>
+      <div class="text-lg text-gray-400">
+        10 條核心心法 + 實戰技巧
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: 核心思維轉變 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">🔄 核心思維轉變</div>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-red-500/20 border-2 border-red-500 rounded-2xl p-8 text-left">
+          <div class="text-3xl font-bold text-red-400 mb-6">❌ 舊思維</div>
+          <ul class="text-gray-300 space-y-4">
+            <li>• AI 是「工具」，等我下指令</li>
+            <li>• 我要教 AI 每一步怎麼做</li>
+            <li>• AI 做錯了就是 AI 的問題</li>
+            <li>• 溝通要詳細，越多越好</li>
+          </ul>
+        </div>
+        <div class="bg-green-500/20 border-2 border-green-500 rounded-2xl p-8 text-left">
+          <div class="text-3xl font-bold text-green-400 mb-6">✅ 新思維</div>
+          <ul class="text-gray-300 space-y-4">
+            <li>• AI 是「員工」，主動推進專案</li>
+            <li>• 我定方向，AI 想辦法</li>
+            <li>• AI 做錯了，檢討系統/溝通</li>
+            <li>• 溝通要清晰，簡潔有力</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/20 rounded-2xl p-8">
+        <div class="text-2xl text-white font-bold">
+          💡 關鍵：把 AI 當「新人」培訓，不是當「軟體」操作
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: 10 條核心心法 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">🎯 10 條核心心法</div>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-blue-300 mb-3">1. 定方向，不管細節</div>
+          <div class="text-sm text-gray-300">說「這週讓獵頭流程跑起來」，不是「先建立檔案，然後...」</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-purple-300 mb-3">2. 里程碑交付，不逐步確認</div>
+          <div class="text-sm text-gray-300">等 AI 做完一個里程碑再檢查，不要每一步都問「可以嗎？」</div>
+        </div>
+        <div class="bg-gradient-to-br from-pink-500/20 to-pink-600/20 border border-pink-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-pink-300 mb-3">3. 說「OK」就是授權</div>
+          <div class="text-sm text-gray-300">AI 提案你說「OK」= 立即執行，不用再問</div>
+        </div>
+        <div class="bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-green-300 mb-3">4. 要結果，不要過程</div>
+          <div class="text-sm text-gray-300">只看「完成了什麼」，不聽「執行了XX指令」</div>
+        </div>
+        <div class="bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-yellow-300 mb-3">5. 讓 AI 提供選項</div>
+          <div class="text-sm text-gray-300">遇到問題，AI 先嘗試 3 個方案，你選一個</div>
+        </div>
+        <div class="bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-red-300 mb-3">6. 建立每日日報</div>
+          <div class="text-sm text-gray-300">AI 每天 21:00 自動報告，你不用主動問</div>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 border border-indigo-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-indigo-300 mb-3">7. 所有決策寫檔案</div>
+          <div class="text-sm text-gray-300">AI 會失憶，但檔案不會。重要的都要記錄</div>
+        </div>
+        <div class="bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border border-cyan-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-cyan-300 mb-3">8. 大任務前先確認</div>
+          <div class="text-sm text-gray-300">AI 預估工作量後問「開始嗎？」，你說「OK」才執行</div>
+        </div>
+        <div class="bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-orange-300 mb-3">9. 要誠實評估，不要理想化</div>
+          <div class="text-sm text-gray-300">AI 說「能省 90%」→ 問「實際上呢？」→ 得到真實答案</div>
+        </div>
+        <div class="bg-gradient-to-br from-teal-500/20 to-teal-600/20 border border-teal-500/50 rounded-2xl p-6 text-left">
+          <div class="text-xl font-bold text-teal-300 mb-3">10. 不 work 立即調整</div>
+          <div class="text-sm text-gray-300">合作模式有問題，立即改規則，不拖延</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: 溝通技巧 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">💬 溝通技巧</div>
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-red-500/20 border-2 border-red-500 rounded-2xl p-6 text-left">
+            <div class="text-2xl font-bold text-red-400 mb-4">❌ 不好的溝通</div>
+            <div class="space-y-3 text-gray-300">
+              <div>「幫我做一個系統」（太模糊）</div>
+              <div>「你覺得怎麼樣？」（丟回給 AI）</div>
+              <div>「這個可以嗎？那個可以嗎？」（逐步確認）</div>
+            </div>
+          </div>
+          <div class="bg-green-500/20 border-2 border-green-500 rounded-2xl p-6 text-left">
+            <div class="text-2xl font-bold text-green-400 mb-4">✅ 好的溝通</div>
+            <div class="space-y-3 text-gray-300">
+              <div>「這週讓獵頭流程跑起來」（清晰目標）</div>
+              <div>「方案 A 或 B，我選 A」（明確決策）</div>
+              <div>「做完再報告」（授權）</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div class="text-2xl font-bold text-blue-400 mb-6">📋 實用句型</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+            <div>✅ 「目標是...，你想辦法」</div>
+            <div>✅ 「做完再報告，不用逐步問」</div>
+            <div>✅ 「給我 3 個選項」</div>
+            <div>✅ 「實際上能做到多少？」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: 常見錯誤 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">⚠️ 5 個常見錯誤</div>
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="bg-red-500/20 border-2 border-red-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-red-400 mb-3">1. 過度微管理</div>
+          <div class="text-gray-300">❌ 每一步都問「可以嗎？」<br>✅ 定好目標，讓 AI 執行，做完再檢查</div>
+        </div>
+        <div class="bg-orange-500/20 border-2 border-orange-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-orange-400 mb-3">2. 不明確授權</div>
+          <div class="text-gray-300">❌ 「你覺得呢？」「隨便啦」<br>✅ 明確說「OK」或「不要」</div>
+        </div>
+        <div class="bg-yellow-500/20 border-2 border-yellow-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-yellow-400 mb-3">3. 期望太理想化</div>
+          <div class="text-gray-300">❌ 「明天就完全自動化」<br>✅ 「這週先跑通流程，再優化」</div>
+        </div>
+        <div class="bg-green-500/20 border-2 border-green-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-green-400 mb-3">4. 不建立記憶系統</div>
+          <div class="text-gray-300">❌ 「心裡記著就好」<br>✅ 「寫在 MEMORY.md」</div>
+        </div>
+        <div class="bg-blue-500/20 border-2 border-blue-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-blue-400 mb-3">5. 不調整合作模式</div>
+          <div class="text-gray-300">❌ AI 囉唆但不改<br>✅ 立即加上「3 行原則」規則</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: 實戰檢查清單 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">✅ 實戰檢查清單</div>
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left">
+          <div class="text-2xl font-bold text-blue-400 mb-6">第一週</div>
+          <div class="space-y-3 text-gray-300">
+            <div>☐ 建立 USER.md, SOUL.md, AGENTS.md, MEMORY.md</div>
+            <div>☐ 設定每日 21:00 日報</div>
+            <div>☐ 確立「你說 OK = 授權」規則</div>
+            <div>☐ 給 AI 一個小專案測試里程碑交付</div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left">
+          <div class="text-2xl font-bold text-purple-400 mb-6">第一個月</div>
+          <div class="space-y-3 text-gray-300">
+            <div>☐ AI 能主動推進專案（不等你每天問）</div>
+            <div>☐ 溝通簡潔（3 行原則）</div>
+            <div>☐ 決策記錄在檔案（不會忘記）</div>
+            <div>☐ 遇到問題 AI 先提供 3 個選項</div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left">
+          <div class="text-2xl font-bold text-green-400 mb-6">長期目標</div>
+          <div class="space-y-3 text-gray-300">
+            <div>☐ 你專注自己的事，AI 主動推進</div>
+            <div>☐ 每天只需看日報，不用管細節</div>
+            <div>☐ 用成果說話，信任建立</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: 結尾金句 -->
+  <div class="slide">
+    <div class="content">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-2 border-blue-500 rounded-2xl p-12">
+          <div class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
+            AI 助理不是魔法<br>是系統
+          </div>
+          <div class="text-2xl text-gray-300">
+            系統越清晰，AI 越聰明
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <div class="text-4xl mb-4">🎯</div>
+            <div class="text-xl font-bold text-white mb-2">你定方向</div>
+            <div class="text-sm text-gray-400">清晰目標</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <div class="text-4xl mb-4">🤖</div>
+            <div class="text-xl font-bold text-white mb-2">AI 想辦法</div>
+            <div class="text-sm text-gray-400">主動執行</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <div class="text-4xl mb-4">✅</div>
+            <div class="text-xl font-bold text-white mb-2">用成果溝通</div>
+            <div class="text-sm text-gray-400">建立信任</div>
+          </div>
+        </div>
+        <div class="text-sm text-gray-500">
+          基於 Jacky 與 YuQi 的實戰經驗 | 2026-02-10
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="prevSlide()">← 上一頁</button>
+    <span class="text-white/60 bg-white/5 px-4 py-2 rounded-full"><span id="current">1</span> / 7</span>
+    <button onclick="nextSlide()">下一頁 →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      document.getElementById('current').textContent = currentSlide + 1;
+    }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+    });
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+    document.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    });
+  </script>
+</body>
+</html>

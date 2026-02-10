@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Jacky 與 YuQi 合作模式分析</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+    * { font-family: 'Noto Sans TC', sans-serif; touch-action: manipulation; }
+    body { background: #000; overflow: hidden; }
+    .slide { width: 100vw; height: 100vh; display: none; position: relative; background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%); overflow-y: auto; }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s ease-in-out infinite; pointer-events: none; }
+    .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); top: -100px; right: -100px; }
+    .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); bottom: -50px; left: -50px; animation-delay: -5s; }
+    @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 50px) scale(0.9); } }
+    .content { position: relative; z-index: 10; text-align: center; padding: 2rem; max-width: 1200px; width: 100%; }
+    .nav { position: fixed; bottom: 2rem; right: 2rem; z-index: 100; display: flex; gap: 1rem; align-items: center; }
+    .nav button { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+    .nav button:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+    @media (max-width: 768px) { .content { padding: 1rem; } .nav { bottom: 1rem; right: 1rem; } .nav button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Slide 1: 封面 -->
+  <div class="slide active">
+    <div class="content">
+      <div class="text-6xl md:text-8xl font-black mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        合作模式分析
+      </div>
+      <div class="text-3xl md:text-4xl font-bold text-white mb-8">
+        Jacky 與 YuQi 的實戰經驗
+      </div>
+      <div class="text-xl text-gray-300">
+        從磨合期到協作期<br>打造高效 AI 助理的秘訣
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: 合作演進史 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">📖 合作演進史</div>
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div class="bg-red-500/20 border-2 border-red-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-red-400 mb-4">階段 1：磨合期</div>
+          <ul class="text-gray-300 space-y-2">
+            <li>• 頻繁確認（「這樣做可以嗎？」）</li>
+            <li>• 效率低、太囉唆</li>
+            <li>• 轉折點：「不要廢話，直接給結果」</li>
+          </ul>
+        </div>
+        <div class="bg-yellow-500/20 border-2 border-yellow-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-yellow-400 mb-4">階段 2：授權期</div>
+          <ul class="text-gray-300 space-y-2">
+            <li>• 里程碑式交付確立</li>
+            <li>• Jacky 說「OK」= 授權</li>
+            <li>• 轉折點：3 行回報 + 每日 21:00 日報</li>
+          </ul>
+        </div>
+        <div class="bg-green-500/20 border-2 border-green-500 rounded-2xl p-6 text-left">
+          <div class="text-2xl font-bold text-green-400 mb-4">階段 3：協作期（現在）</div>
+          <ul class="text-gray-300 space-y-2">
+            <li>• 日報制、授權機制、里程碑交付</li>
+            <li>• 3 行原則、記憶系統</li>
+            <li>• ✅ Jacky 專注自己的事，YuQi 主動推進</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: 角色定位 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">🎯 角色定位</div>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-blue-500/20 border-2 border-blue-500 rounded-2xl p-8 text-left">
+          <div class="text-3xl font-bold text-blue-400 mb-6">Jacky 的角色</div>
+          <ul class="text-gray-300 space-y-4 text-lg">
+            <li>✅ <span class="font-bold">決策者</span>：定方向、做選擇</li>
+            <li>✅ <span class="font-bold">審核者</span>：里程碑交付時檢查</li>
+            <li>✅ <span class="font-bold">授權者</span>：說「OK」就是授權</li>
+          </ul>
+        </div>
+        <div class="bg-purple-500/20 border-2 border-purple-500 rounded-2xl p-8 text-left">
+          <div class="text-3xl font-bold text-purple-400 mb-6">YuQi 的角色</div>
+          <ul class="text-gray-300 space-y-4 text-lg">
+            <li>✅ <span class="font-bold">執行者</span>：主動推進專案</li>
+            <li>✅ <span class="font-bold">問題解決者</span>：遇到問題先嘗試</li>
+            <li>✅ <span class="font-bold">記錄者</span>：所有決策記錄下來</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-white/20 rounded-2xl p-6">
+        <div class="text-2xl text-white font-bold">
+          💎 關鍵：Jacky 不需要管 YuQi 怎麼做，只看結果
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: 溝通節奏 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">📅 溝通節奏</div>
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div class="text-2xl font-bold text-blue-400 mb-6">每日節奏</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-blue-500/20 p-4 rounded-lg text-white">
+              <div class="text-3xl mb-2">🕘</div>
+              <div class="font-bold mb-2">21:00</div>
+              <div class="text-sm text-gray-300">自動日報</div>
+            </div>
+            <div class="bg-purple-500/20 p-4 rounded-lg text-white">
+              <div class="text-3xl mb-2">✅</div>
+              <div class="font-bold mb-2">里程碑完成時</div>
+              <div class="text-sm text-gray-300">3 行摘要交付</div>
+            </div>
+            <div class="bg-pink-500/20 p-4 rounded-lg text-white">
+              <div class="text-3xl mb-2">🔴</div>
+              <div class="font-bold mb-2">遇到卡點</div>
+              <div class="text-sm text-gray-300">立即報告並提供選項</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-left">
+          <div class="text-2xl font-bold text-green-400 mb-6">回報原則（3 行）</div>
+          <div class="space-y-3 text-gray-300">
+            <div>1️⃣ <span class="font-bold text-white">完成了什麼</span>（結果）</div>
+            <div>2️⃣ <span class="font-bold text-white">現在能幹什麼</span>（可用）</div>
+            <div>3️⃣ <span class="font-bold text-white">下一步是什麼</span>（計畫）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: 10 個高效原則 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">🎯 10 個高效原則</div>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-blue-300">1. 結果導向</div>
+          <div class="text-sm text-gray-300 mt-1">不說過程，只看產出</div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-purple-300">2. 里程碑交付</div>
+          <div class="text-sm text-gray-300 mt-1">做完一段 → 確認 → 下一段</div>
+        </div>
+        <div class="bg-gradient-to-br from-pink-500/20 to-pink-600/20 border border-pink-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-pink-300">3. 3 行原則</div>
+          <div class="text-sm text-gray-300 mt-1">預設簡潔，除非說「解釋」</div>
+        </div>
+        <div class="bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-green-300">4. 授權機制</div>
+          <div class="text-sm text-gray-300 mt-1">說「OK」= 繼續</div>
+        </div>
+        <div class="bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-yellow-300">5. 每日日報</div>
+          <div class="text-sm text-gray-300 mt-1">21:00 自動報告</div>
+        </div>
+        <div class="bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-red-300">6. 透明記錄</div>
+          <div class="text-sm text-gray-300 mt-1">所有決策寫在檔案</div>
+        </div>
+        <div class="bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 border border-indigo-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-indigo-300">7. 主動解決</div>
+          <div class="text-sm text-gray-300 mt-1">遇到問題先嘗試</div>
+        </div>
+        <div class="bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border border-cyan-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-cyan-300">8. 防呆機制</div>
+          <div class="text-sm text-gray-300 mt-1">大任務前先確認</div>
+        </div>
+        <div class="bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-orange-300">9. 誠實評估</div>
+          <div class="text-sm text-gray-300 mt-1">做得到說做得到</div>
+        </div>
+        <div class="bg-gradient-to-br from-teal-500/20 to-teal-600/20 border border-teal-500/50 rounded-xl p-5 text-left">
+          <div class="text-lg font-bold text-teal-300">10. 持續改進</div>
+          <div class="text-sm text-gray-300 mt-1">不 work 立即調整</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: 核心心法 -->
+  <div class="slide">
+    <div class="content">
+      <div class="text-4xl md:text-5xl font-bold text-white mb-12">💎 核心心法</div>
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-2 border-blue-500 rounded-2xl p-12">
+          <div class="text-4xl md:text-5xl font-black text-white mb-6">
+            你定方向<br>AI 想辦法<br>用成果溝通
+          </div>
+          <div class="text-xl text-gray-300">
+            這就是高效合作的本質
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <div class="text-2xl font-bold text-green-400 mb-3">✅ Jacky 的收穫</div>
+            <ul class="text-gray-300 space-y-2">
+              <li>• 能專注自己的事</li>
+              <li>• 每天只需看日報</li>
+              <li>• 信任建立（用成果說話）</li>
+            </ul>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+            <div class="text-2xl font-bold text-blue-400 mb-3">✅ YuQi 的收穫</div>
+            <ul class="text-gray-300 space-y-2">
+              <li>• 有明確方向</li>
+              <li>• 主動權增加</li>
+              <li>• 持續學習與改進</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="prevSlide()">← 上一頁</button>
+    <span class="text-white/60 bg-white/5 px-4 py-2 rounded-full"><span id="current">1</span> / 6</span>
+    <button onclick="nextSlide()">下一頁 →</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      document.getElementById('current').textContent = currentSlide + 1;
+    }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+    });
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+    document.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    });
+  </script>
+</body>
+</html>
