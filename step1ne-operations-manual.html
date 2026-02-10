@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step1ne 獵頭系統 - 同仁操作手冊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #764ba2;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #667eea;
+            margin: 25px 0 15px 0;
+        }
+        
+        h4 {
+            font-size: 1.2em;
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+        }
+        
+        .flow-step {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .flow-step h4 {
+            margin-top: 0;
+        }
+        
+        .match-score {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .high-match {
+            background: #10b981;
+            color: white;
+        }
+        
+        .mid-match {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .low-match {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .button-demo {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .notification-box {
+            background: #f0f9ff;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .topic-list {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .success {
+            background: #d1fae5;
+            border-left: 5px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .quick-command {
+            background: #1e293b;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:hover {
+            background: #f9fafb;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🦞 Step1ne 獵頭系統</h1>
+            <div class="subtitle">內部同仁操作手冊</div>
+            
+            <h2>📱 Telegram 群組架構</h2>
+            
+            <div class="topic-list">
+                <h3>群組：HR AI招募自動化</h3>
+                <p><strong>群組 ID：</strong><code>-1003231629634</code></p>
+                
+                <h4>Topics 設定：</h4>
+                <ul>
+                    <li><strong>#履歷進件</strong> (Topic ID: 4) - 候選人上傳履歷的入口</li>
+                    <li><strong>#履歷池</strong> (Topic ID: 304) - 所有履歷的儲存與搜尋</li>
+                    <li><strong>#客戶-{公司名}</strong> - 每個客戶專屬的職缺討論區</li>
+                    <li><strong>#總覽看板</strong> - 所有案子的 Pipeline 追蹤</li>
+                    <li><strong>#JD列表</strong> - 所有開放職缺一覽</li>
+                </ul>
+            </div>
+            
+            <h2>📋 履歷進件完整流程</h2>
+            
+            <div class="flow-step">
+                <h4>步驟 1️⃣：履歷收集</h4>
+                <p><strong>入口：</strong>#履歷進件 (Topic 4)</p>
+                <ul>
+                    <li>候選人上傳履歷檔案（PDF/Word/圖片）</li>
+                    <li>YuQi 自動處理：解析 → 格式化 → 匿名化</li>
+                    <li>自動產生代號（格式：<code>{職能}-{年份}-{序號}</code>，例如 BE-2026-001）</li>
+                    <li>存入履歷池 + Google Drive</li>
+                </ul>
+            </div>
+            
+            <div class="flow-step">
+                <h4>步驟 2️⃣：自動匹配</h4>
+                <p><strong>執行者：</strong>YuQi AI</p>
+                <ul>
+                    <li>讀取所有開放職缺</li>
+                    <li>自動計算匹配度</li>
+                    <li>分類：</li>
+                </ul>
+                <div style="margin: 15px 0;">
+                    <span class="match-score high-match">🟢 ≥90% 高匹配</span> → 建議直接推<br>
+                    <span class="match-score mid-match">🟡 70-89% 中匹配</span> → 需顧問確認<br>
+                    <span class="match-score low-match">⚪ &lt;70% 低匹配</span> → 放履歷池
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <h4>步驟 3️⃣：三方通知機制</h4>
+                
+                <h4>高匹配（≥90%）自動通知：</h4>
+                <ol>
+                    <li><strong>私訊 Jacky：</strong>「發現高匹配候選人！{代號} × {職缺名}（{公司}）匹配度 {分數}%」</li>
+                    <li><strong>#客戶-{公司名} Topic：</strong>發詳細匹配報告（優勢/疑慮/建議問題）</li>
+                    <li><strong>#總覽看板：</strong>更新 Pipeline 狀態（+1 推薦中）</li>
+                </ol>
+                
+                <h4>中匹配（70-89%）需確認：</h4>
+                <ol>
+                    <li><strong>私訊 Jacky：</strong>「候選人 {代號} 與 {職缺} 匹配度 {分數}%，是否推薦？」</li>
+                    <li>顯示按鈕：<span class="button-demo">推</span> <span class="button-demo">不推</span> <span class="button-demo">再看看</span></li>
+                    <li>等待 Jacky 回應</li>
+                </ol>
+                
+                <h4>低匹配（&lt;70%）：</h4>
+                <ul>
+                    <li>僅存入 #履歷池，不主動通知</li>
+                </ul>
+            </div>
+            
+            <div class="flow-step">
+                <h4>步驟 4️⃣：Jacky 確認後執行</h4>
+                
+                <div class="success">
+                    <strong>✅ Jacky 回覆「推」或按 [推] 按鈕：</strong>
+                    <ol>
+                        <li>YuQi 生成推薦報告</li>
+                        <li>YQ2 寄信給客戶（包含匿名履歷 + 推薦理由）</li>
+                        <li>更新狀態到「已推薦」</li>
+                        <li>啟動自動跟進（3天、7天、14天）</li>
+                        <li>同步更新 #總覽看板</li>
+                    </ol>
+                </div>
+                
+                <div class="warning">
+                    <strong>❌ Jacky 回覆「不推」：</strong>
+                    <ul>
+                        <li>標記為「不適合」</li>
+                        <li>存入 #履歷池</li>
+                        <li>記錄原因（供未來學習）</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <strong>🔍 Jacky 回覆「再看看」：</strong>
+                    <ul>
+                        <li>YuQi 提供更深入分析（技術問題建議、面試重點）</li>
+                        <li>等待 Jacky 再次決定</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <h4>步驟 5️⃣：追蹤與提醒</h4>
+                <p><strong>執行者：</strong>YQ2（自動排程）</p>
+                
+                <table>
+                    <tr>
+                        <th>階段</th>
+                        <th>提醒時間</th>
+                        <th>提醒內容</th>
+                    </tr>
+                    <tr>
+                        <td>推薦後</td>
+                        <td>Day 3、Day 7、Day 14</td>
+                        <td>「客戶有回應嗎？」</td>
+                    </tr>
+                    <tr>
+                        <td>面試安排後</td>
+                        <td>Day 1、Day 3</td>
+                        <td>提醒準備面試</td>
+                    </tr>
+                    <tr>
+                        <td>Offer 發出後</td>
+                        <td>每天</td>
+                        <td>追蹤回覆狀態</td>
+                    </tr>
+                    <tr>
+                        <td>報到後</td>
+                        <td>Day 1、Week 1、Month 1、90天</td>
+                        <td>保證期關懷</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>👥 團隊分工</h2>
+            
+            <h3>🦞 YQ1（本尊 YuQi）- 分析與規劃</h3>
+            <ul>
+                <li>履歷解析與格式化</li>
+                <li>匹配度計算</li>
+                <li>生成推薦報告</li>
+                <li>人才搜尋策略</li>
+                <li>開發信撰寫</li>
+                <li>JD 生成</li>
+            </ul>
+            
+            <h3>🦞 YQ2（HR YuQi）- 執行與追蹤</h3>
+            <ul>
+                <li>發送推薦信給客戶</li>
+                <li>自動跟進提醒</li>
+                <li>更新看板狀態</li>
+                <li>排程面試提醒</li>
+                <li>保證期關懷</li>
+            </ul>
+            
+            <h3>👔 Jacky（獵頭顧問）- 決策與溝通</h3>
+            <ul>
+                <li>確認是否推薦候選人</li>
+                <li>與客戶電話溝通</li>
+                <li>薪資談判</li>
+                <li>關鍵決策點</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>💬 通知格式範例</h2>
+            
+            <h3>高匹配通知（私訊）</h3>
+            <div class="notification-box">🎯 發現高匹配候選人！
+
+📋 候選人：BE-2026-003
+💼 職缺：Backend Engineer（ABC 科技）
+📊 匹配度：93%
+
+✅ 優勢：
+- 5年 Node.js 經驗
+- 熟悉 AWS / Docker / K8s
+- 有金融產業背景
+
+⚠️ 疑慮：
+- 目前薪資 120k，JD 開到 150k 可能期望更高
+
+[推] [不推] [再看看]</div>
+            
+            <h3>推薦報告（#客戶-ABC科技）</h3>
+            <div class="notification-box">📬 推薦候選人：BE-2026-003
+
+【基本資訊】
+• 現職：OO銀行 後端工程師
+• 年資：5年
+• 技能：Node.js, AWS, Docker, K8s, MongoDB
+
+【亮點】
+1. 金融產業背景，熟悉高併發交易系統
+2. 有微服務架構設計經驗
+3. 英文溝通能力佳（多次海外 conf）
+
+【推薦理由】
+技能完全符合 JD，且金融背景是加分項。
+
+【建議面試問題】
+1. 如何設計高可用的支付系統？
+2. 微服務之間的 tracing 怎麼做？
+3. K8s 遇過哪些坑？
+
+已於 2026-02-10 18:30 寄出推薦信。</div>
+            
+            <h3>跟進提醒（私訊）</h3>
+            <div class="notification-box">⏰ 跟進提醒
+
+📋 候選人：BE-2026-003
+💼 職缺：Backend Engineer（ABC 科技）
+📅 推薦日期：2026-02-07（3天前）
+
+客戶有回應嗎？
+[安排面試] [客戶不感興趣] [再等等]</div>
+        </div>
+        
+        <div class="card">
+            <h2>⚡ 快速操作指令</h2>
+            
+            <h3>常用指令（在 Telegram 直接輸入）</h3>
+            
+            <div class="quick-command">「搜尋履歷池：Python 工程師」</div>
+            <p>→ 在履歷池中搜尋相關履歷</p>
+            
+            <div class="quick-command">「更新 BE-2026-003 狀態：面試中」</div>
+            <p>→ 手動更新候選人狀態</p>
+            
+            <div class="quick-command">「今天有哪些要跟進？」</div>
+            <p>→ 查看今日待辦事項</p>
+            
+            <div class="quick-command">「推」或按 [推] 按鈕</div>
+            <p>→ 確認推薦候選人給客戶</p>
+        </div>
+        
+        <div class="card">
+            <h2>⚠️ 注意事項</h2>
+            
+            <div class="warning">
+                <h3>🔒 匿名化必須</h3>
+                <p>所有履歷在推薦給客戶前必須匿名化（用代號），保護候選人隱私。</p>
+            </div>
+            
+            <div class="warning">
+                <h3>🔔 三方通知</h3>
+                <p>高匹配案件必須同步通知（私訊 + Topic + 看板），確保資訊透明。</p>
+            </div>
+            
+            <div class="warning">
+                <h3>👔 Jacky 主導權</h3>
+                <p>所有推薦必須經 Jacky 確認，YQ1/YQ2 不能自行決定推薦。</p>
+            </div>
+            
+            <div class="warning">
+                <h3>📅 追蹤不漏球</h3>
+                <p>每個階段都有自動跟進，確保沒有案子被遺忘。</p>
+            </div>
+            
+            <div class="warning">
+                <h3>🔄 資料一致性</h3>
+                <p>所有狀態更新必須同步到 JSON + Google Sheets + Telegram。</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🔗 重要連結</h2>
+            
+            <ul>
+                <li><strong>雲端資料夾：</strong><a href="https://drive.google.com/drive/folders/12lfoz7qwjhWMwbCJL_SfOf3icCOTCydS" target="_blank">獵頭系統</a></li>
+                <li><strong>履歷池索引：</strong><a href="https://docs.google.com/spreadsheets/d/1PunpaDAFBPBL_I76AiRYGXKaXDZvMl1c262SEtxRk6Q" target="_blank">Google Sheets</a></li>
+                <li><strong>職缺管理：</strong><a href="https://docs.google.com/spreadsheets/d/1QPaeOm-slNVFCeM8Q3gg3DawKjzp2tYwyfquvdHlZFE" target="_blank">step1ne 職缺管理</a></li>
+                <li><strong>Telegram 群組：</strong>HR AI招募自動化 (ID: -1003231629634)</li>
+            </ul>
+        </div>
+        
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border: none;">🦞 Ready to Go!</h2>
+            <p style="font-size: 1.2em; margin-top: 20px;">有問題隨時在群組問 YuQi</p>
+        </div>
+    </div>
+</body>
+</html>
