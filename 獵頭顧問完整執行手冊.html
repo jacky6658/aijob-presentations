@@ -33,6 +33,7 @@
     .step-card.done { border-color: rgba(16, 185, 129, 0.5); }
     .step-card.future { border-color: rgba(251, 191, 36, 0.5); }
     .step-card.highlight { border-color: rgba(102, 126, 234, 0.5); }
+    .step-card.alert { border-color: rgba(239, 68, 68, 0.5); }
     .step-row { display: flex; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; }
     .step-row:last-child { border-bottom: none; }
     .step-num { width: 24px; height: 24px; background: rgba(102, 126, 234, 0.2); color: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; margin-right: 0.6rem; flex-shrink: 0; }
@@ -44,6 +45,7 @@
     .tag-done { background: rgba(16, 185, 129, 0.2); color: #10b981; }
     .tag-todo { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
     .tag-ai { background: rgba(102, 126, 234, 0.2); color: #667eea; }
+    .tag-auto { background: rgba(16, 185, 129, 0.2); color: #10b981; }
     .example-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.8rem; font-family: monospace; font-size: 0.75rem; color: #9ca3af; text-align: left; white-space: pre-wrap; }
     .workflow-step { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 0.8rem; text-align: center; }
     .workflow-arrow { color: #4b5563; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; }
@@ -53,6 +55,10 @@
     .pool-tag-backend { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
     .pool-tag-5y { background: rgba(16, 185, 129, 0.2); color: #10b981; }
     .pool-tag-open { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .notify-box { background: rgba(102, 126, 234, 0.1); border: 1px solid rgba(102, 126, 234, 0.3); border-radius: 10px; padding: 0.8rem; text-align: left; }
+    .threshold-high { background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); }
+    .threshold-mid { background: rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.4); }
+    .threshold-low { background: rgba(107, 114, 128, 0.15); border-color: rgba(107, 114, 128, 0.4); }
   </style>
 </head>
 <body>
@@ -282,7 +288,192 @@
     </div>
   </div>
 
-  <!-- ========== Slide 6: 完整執行迴圈 ========== -->
+  <!-- ========== Slide 6: 匹配成功 - YQ1 自動產出 ========== -->
+  <div class="slide">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-green"></div>
+    <div class="content">
+      <h1 class="text-2xl mb-4">🎯 匹配成功後 - YQ1 自動產出</h1>
+      <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto mb-4">
+        <div class="step-card highlight">
+          <p class="text-white font-bold mb-3">🤖 YQ1 自動產出 4 份文件</p>
+          <div class="step-row"><div class="step-num">1</div><span class="text-gray-300 text-sm">匹配分析報告</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">2</div><span class="text-gray-300 text-sm">匿名履歷（格式化）</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">3</div><span class="text-gray-300 text-sm">推薦信草稿</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">4</div><span class="text-gray-300 text-sm">面試問題（給顧問談人選用）</span><span class="tag tag-auto">自動</span></div>
+        </div>
+        <div class="step-card">
+          <p class="text-white font-bold mb-3">📊 匹配報告內容</p>
+          <div class="example-box text-xs" style="padding: 0.6rem;">
+📊 匹配度：85%
+
+✅ 符合項目：
+• Node.js 5年+ ✓
+• AWS 經驗 ✓
+• 帶人經驗 ✓
+
+⚠️ 缺口項目：
+• 沒有 K8s（可補）
+• 薪資期望稍高
+
+💡 建議：
+技術能力強，可推薦
+建議先談薪資期望</div>
+        </div>
+      </div>
+      <div class="mt-4 p-3 bg-green-900/20 rounded-lg max-w-4xl mx-auto">
+        <p class="text-green-400 text-sm">✅ <span class="text-white">顧問不用動手整理</span> — 所有文件 AI 自動準備好，顧問只需確認「推」或「不推」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Slide 7: 匹配成功 - 三路通知 ========== -->
+  <div class="slide">
+    <div class="orb orb-2"></div>
+    <div class="orb orb-1"></div>
+    <div class="content">
+      <h1 class="text-2xl mb-4">📢 匹配成功 - 三路同時通知</h1>
+      <div class="grid grid-cols-3 gap-4 max-w-5xl mx-auto mb-4">
+        <div class="notify-box">
+          <p class="text-xl mb-2">1️⃣</p>
+          <p class="text-white font-bold text-sm mb-2">私訊顧問</p>
+          <p class="text-gray-400 text-xs">快速提醒，不會漏掉</p>
+          <div class="example-box text-xs mt-2" style="padding: 0.5rem;">
+「ABC 職缺有匹配！
+王小明 85%
+👉 確認推薦回覆『推』」</div>
+        </div>
+        <div class="notify-box">
+          <p class="text-xl mb-2">2️⃣</p>
+          <p class="text-white font-bold text-sm mb-2">#客戶-職缺 Topic</p>
+          <p class="text-gray-400 text-xs">完整報告 + 附件</p>
+          <div class="example-box text-xs mt-2" style="padding: 0.5rem;">
+發到 #ABC科技-Backend
+• 匹配分析報告
+• 匿名履歷
+• 推薦信草稿</div>
+        </div>
+        <div class="notify-box">
+          <p class="text-xl mb-2">3️⃣</p>
+          <p class="text-white font-bold text-sm mb-2">#總覽看板</p>
+          <p class="text-gray-400 text-xs">狀態更新，一目了然</p>
+          <div class="example-box text-xs mt-2" style="padding: 0.5rem;">
+「ABC-BE: 
+新匹配 1 位待確認
+王小明 85% ⏳」</div>
+        </div>
+      </div>
+      <div class="mt-4 p-3 bg-white/5 rounded-lg max-w-4xl mx-auto">
+        <p class="text-gray-400 text-sm">💡 三路通知確保：<span class="text-white">不會漏掉</span>（私訊）+ <span class="text-white">有完整資料</span>（Topic）+ <span class="text-white">狀態可追蹤</span>（看板）</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Slide 8: 顧問收到的通知 ========== -->
+  <div class="slide">
+    <div class="orb orb-3"></div>
+    <div class="orb orb-green"></div>
+    <div class="content">
+      <h1 class="text-2xl mb-4">📱 顧問收到的通知長這樣</h1>
+      <div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="step-card highlight" style="padding: 1.2rem;">
+          <div class="example-box text-sm" style="background: rgba(102, 126, 234, 0.1); border-color: rgba(102, 126, 234, 0.3);">
+🎯 <span class="text-white font-bold">匹配成功通知！</span>
+
+📋 職缺：ABC科技 - Backend Engineer
+👤 人選：王小明
+📊 匹配度：<span class="text-green-400">85%</span>
+
+✅ 符合：Node.js 5年+、AWS 經驗
+⚠️ 缺口：沒有 K8s（可補）
+
+📄 已生成：
+• 匿名履歷
+• 推薦信草稿
+• 面試問題（給你談人選用）
+
+👉 確認推薦請回覆「<span class="text-green-400">推</span>」
+👉 不推請回覆「<span class="text-red-400">不推，原因：___</span>」
+
+[完整報告在 #ABC科技-Backend]</div>
+        </div>
+        <div class="step-card">
+          <p class="text-white font-bold mb-3">顧問只需回覆一個字</p>
+          <div class="grid grid-cols-1 gap-3">
+            <div class="flow-box done" style="border-color: rgba(16, 185, 129, 0.5);">
+              <p class="text-green-400 font-bold">「推」</p>
+              <p class="text-gray-400 text-xs mt-1">→ YQ2 自動發送推薦信給客戶</p>
+            </div>
+            <div class="flow-box" style="border-color: rgba(239, 68, 68, 0.3);">
+              <p class="text-red-400 font-bold">「不推，原因：薪資太高」</p>
+              <p class="text-gray-400 text-xs mt-1">→ YQ2 放回 #履歷池 + 記錄原因</p>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-white/5 rounded-lg">
+            <p class="text-gray-400 text-xs">💡 所有文件已準備好<br>顧問<span class="text-white">只需決策</span>，不用動手整理</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Slide 9: 匹配度門檻 ========== -->
+  <div class="slide">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="content">
+      <h1 class="text-2xl mb-4">⚡ 自動 vs 需確認 - 匹配度門檻</h1>
+      <div class="grid grid-cols-3 gap-4 max-w-5xl mx-auto mb-4">
+        <div class="step-card threshold-high" style="border-width: 2px;">
+          <p class="text-3xl mb-2">🟢</p>
+          <p class="text-green-400 font-bold text-lg">≥ 90%</p>
+          <p class="text-white text-sm mt-2">高匹配度</p>
+          <ul class="text-gray-400 text-xs mt-3 space-y-1">
+            <li>✅ 自動通知</li>
+            <li>✅ 建議直接推</li>
+            <li>💡 文件都準備好了</li>
+          </ul>
+          <div class="example-box text-xs mt-3" style="padding: 0.5rem;">
+「王小明 92% 
+建議直接推！
+回覆『推』即發送」</div>
+        </div>
+        <div class="step-card threshold-mid" style="border-width: 2px;">
+          <p class="text-3xl mb-2">🟡</p>
+          <p class="text-yellow-400 font-bold text-lg">70% - 89%</p>
+          <p class="text-white text-sm mt-2">中匹配度</p>
+          <ul class="text-gray-400 text-xs mt-3 space-y-1">
+            <li>✅ 自動通知</li>
+            <li>⏳ 等顧問確認</li>
+            <li>💡 有缺口需評估</li>
+          </ul>
+          <div class="example-box text-xs mt-3" style="padding: 0.5rem;">
+「王小明 85%
+缺 K8s 經驗
+請確認是否推薦」</div>
+        </div>
+        <div class="step-card threshold-low" style="border-width: 2px;">
+          <p class="text-3xl mb-2">⚪</p>
+          <p class="text-gray-400 font-bold text-lg">< 70%</p>
+          <p class="text-white text-sm mt-2">低匹配度</p>
+          <ul class="text-gray-400 text-xs mt-3 space-y-1">
+            <li>❌ 不通知顧問</li>
+            <li>📋 自動放 #履歷池</li>
+            <li>💡 備用，等其他機會</li>
+          </ul>
+          <div class="example-box text-xs mt-3" style="padding: 0.5rem;">
+不打擾顧問
+自動存入履歷池
+標記技能等備用</div>
+        </div>
+      </div>
+      <div class="mt-4 p-3 bg-white/5 rounded-lg max-w-4xl mx-auto">
+        <p class="text-gray-400 text-sm">🎯 設計理念：<span class="text-white">高匹配催促</span>、<span class="text-white">中匹配詢問</span>、<span class="text-white">低匹配不打擾</span> — 讓顧問專注在有價值的決策</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Slide 10: 完整執行迴圈 ========== -->
   <div class="slide">
     <div class="orb orb-2"></div>
     <div class="orb orb-1"></div>
@@ -294,43 +485,77 @@
           <div class="example-box text-xs">
 1️⃣ Jacky：「新 JD，客戶 ABC 找 Backend」
 
-2️⃣ YQ1 執行：
+2️⃣ YQ1 自動執行：
    • 分析 JD ✓
    • 先掃 #履歷池 → 找到 2 個可能的
    • 再搜尋新的 → 找到 3 個
    • 匹配分析 5 份履歷
+   • 自動產出報告 + 匿名履歷 + 推薦信
 
 3️⃣ YQ1 回報：
    「找到 5 位候選人，匹配度排序：
-   1. 王小明 92%（履歷池）⭐
+   1. 王小明 92%（履歷池）⭐ 建議直接推
    2. 李大華 85%（新找的）
-   3. 張三 78%（新找的）
-   4. ...」</div>
+   3. 張三 78%（新找的）」</div>
         </div>
         <div class="step-card">
-          <p class="text-white font-bold mb-2">Step 4-5：決定 → 執行 → 更新</p>
+          <p class="text-white font-bold mb-2">Step 4-6：決定 → 執行 → 更新</p>
           <div class="example-box text-xs">
-4️⃣ Jacky：「推 1 和 2」
+4️⃣ Jacky：「推」（回覆一個字）
 
-5️⃣ YQ2 執行：
-   • 格式化履歷 ✓
-   • 撰寫推薦信 ✓
-   • 發送給客戶 hr@abc.com ✓
+5️⃣ YQ2 自動執行：
+   • 取用 YQ1 準備好的文件 ✓
+   • 發送推薦信給 hr@abc.com ✓
+   • 附上匿名履歷 ✓
    • 設定 3 天後跟進提醒 ✓
 
-6️⃣ YQ2 更新狀態：
+6️⃣ YQ2 自動更新狀態：
    • 更新 #ABC科技-Backend Topic
+   「✅ 王小明已推薦 2026-02-10」
    • 王小明從 #履歷池 移除（已推）
-   • 李大華標記「推薦中」</div>
+   • 更新 #總覽看板 狀態</div>
         </div>
       </div>
       <div class="mt-4 p-3 bg-green-900/20 rounded-lg max-w-4xl mx-auto">
-        <p class="text-green-400 text-sm">✅ 整個流程：<span class="text-white">Jacky 只需下 2 個指令</span>，其餘 AI 自動完成</p>
+        <p class="text-green-400 text-sm">✅ 整個流程：<span class="text-white">Jacky 只需說 2 句話</span>（新 JD + 推），其餘 AI 全自動完成</p>
       </div>
     </div>
   </div>
 
-  <!-- ========== Slide 7: Phase 1 BD ========== -->
+  <!-- ========== Slide 11: 顧問回覆後的動作 ========== -->
+  <div class="slide">
+    <div class="orb orb-3"></div>
+    <div class="orb orb-1"></div>
+    <div class="content">
+      <h1 class="text-2xl mb-4">📤 顧問回覆後 - YQ2 自動執行</h1>
+      <div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="step-card done">
+          <p class="text-2xl mb-2">✅</p>
+          <p class="text-green-400 font-bold mb-3">回覆「推」</p>
+          <div class="step-row"><div class="step-num">1</div><span class="text-gray-300 text-sm">取用 YQ1 準備的推薦信</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">2</div><span class="text-gray-300 text-sm">取用匿名履歷作為附件</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">3</div><span class="text-gray-300 text-sm">發送 Email 給客戶 HR</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">4</div><span class="text-gray-300 text-sm">更新 #客戶-職缺 Topic 狀態</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">5</div><span class="text-gray-300 text-sm">設定 3 天後跟進提醒</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">6</div><span class="text-gray-300 text-sm">從 #履歷池 移除（已推）</span><span class="tag tag-auto">自動</span></div>
+        </div>
+        <div class="step-card alert">
+          <p class="text-2xl mb-2">❌</p>
+          <p class="text-red-400 font-bold mb-3">回覆「不推，原因：___」</p>
+          <div class="step-row"><div class="step-num">1</div><span class="text-gray-300 text-sm">記錄不推原因</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">2</div><span class="text-gray-300 text-sm">放回 #履歷池（標記原因）</span><span class="tag tag-auto">自動</span></div>
+          <div class="step-row"><div class="step-num">3</div><span class="text-gray-300 text-sm">更新 #客戶-職缺 Topic</span><span class="tag tag-auto">自動</span></div>
+          <div class="example-box text-xs mt-3" style="padding: 0.5rem;">
+📋 #履歷池 更新：
+👤 王小明
+📝 XX 案不推：薪資期望過高
+🔄 可推薦其他案子</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== Slide 12: Phase 1 BD ========== -->
   <div class="slide">
     <div class="orb orb-2"></div>
     <div class="content">
@@ -349,7 +574,7 @@ Jacky → YQ2：「發這封開發信給 xxx@company.com」</div>
     </div>
   </div>
 
-  <!-- ========== Slide 8: Phase 2 Sourcing ========== -->
+  <!-- ========== Slide 13: Phase 2 Sourcing ========== -->
   <div class="slide">
     <div class="orb orb-1"></div>
     <div class="content">
@@ -369,7 +594,7 @@ YQ1 回覆：人才畫像 + Boolean String + 履歷池現有人選 + 建議管�
     </div>
   </div>
 
-  <!-- ========== Slide 9: Phase 3 Screening ========== -->
+  <!-- ========== Slide 14: Phase 3 Screening ========== -->
   <div class="slide">
     <div class="orb orb-2"></div>
     <div class="content">
@@ -391,7 +616,7 @@ Jacky → YQ2：「這個候選人不適合這案子，但人不錯，放履歷�
     </div>
   </div>
 
-  <!-- ========== Slide 10: Phase 4 Engagement ========== -->
+  <!-- ========== Slide 15: Phase 4 Engagement ========== -->
   <div class="slide">
     <div class="orb orb-1"></div>
     <div class="content">
@@ -415,29 +640,28 @@ YQ1 回覆：
     </div>
   </div>
 
-  <!-- ========== Slide 11: Phase 5 Submission ⭐ ========== -->
+  <!-- ========== Slide 16: Phase 5 Submission ⭐ ========== -->
   <div class="slide">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="content">
-      <h1 class="text-2xl mb-4">5️⃣ 推薦客戶 <span class="text-gray-500 text-lg">Submission</span> <span class="text-red-400">⭐ 關鍵缺口</span></h1>
+      <h1 class="text-2xl mb-4">5️⃣ 推薦客戶 <span class="text-gray-500 text-lg">Submission</span> <span class="text-red-400">⭐ 關鍵</span></h1>
       <div class="step-card max-w-3xl mx-auto mb-4">
-        <div class="step-row"><div class="step-num">1</div><span class="text-gray-300 text-sm">履歷格式化（統一模板+匿名）</span><span class="tag tag-yq1">YQ1</span><span class="tag tag-todo">待開發</span></div>
-        <div class="step-row"><div class="step-num">2</div><span class="text-gray-300 text-sm">推薦報告生成</span><span class="tag tag-yq1">YQ1</span><span class="tag tag-done">RecommendationEmail</span></div>
-        <div class="step-row"><div class="step-num">3</div><span class="text-gray-300 text-sm">撰寫推薦 Email</span><span class="tag tag-yq1">YQ1</span></div>
-        <div class="step-row"><div class="step-num">4</div><span class="text-gray-300 text-sm">發送給客戶</span><span class="tag tag-yq2">YQ2</span><span class="tag tag-tool">gog + 附件</span></div>
-        <div class="step-row"><div class="step-num">5</div><span class="text-gray-300 text-sm">設定 3 天跟進提醒</span><span class="tag tag-yq2">YQ2</span><span class="tag tag-tool">cron</span></div>
-        <div class="step-row"><div class="step-num">6</div><span class="text-gray-300 text-sm">更新 #客戶-職缺 狀態</span><span class="tag tag-yq2">YQ2</span></div>
+        <div class="step-row"><div class="step-num">1</div><span class="text-gray-300 text-sm">履歷格式化（統一模板+匿名）</span><span class="tag tag-yq1">YQ1</span><span class="tag tag-auto">自動產出</span></div>
+        <div class="step-row"><div class="step-num">2</div><span class="text-gray-300 text-sm">推薦報告生成</span><span class="tag tag-yq1">YQ1</span><span class="tag tag-auto">自動產出</span></div>
+        <div class="step-row"><div class="step-num">3</div><span class="text-gray-300 text-sm">撰寫推薦 Email</span><span class="tag tag-yq1">YQ1</span><span class="tag tag-auto">自動產出</span></div>
+        <div class="step-row"><div class="step-num">4</div><span class="text-gray-300 text-sm">顧問確認「推」</span><span class="tag tag-jacky">Jacky</span></div>
+        <div class="step-row"><div class="step-num">5</div><span class="text-gray-300 text-sm">發送給客戶</span><span class="tag tag-yq2">YQ2</span><span class="tag tag-tool">gog + 附件</span></div>
+        <div class="step-row"><div class="step-num">6</div><span class="text-gray-300 text-sm">設定 3 天跟進提醒</span><span class="tag tag-yq2">YQ2</span><span class="tag tag-tool">cron</span></div>
+        <div class="step-row"><div class="step-num">7</div><span class="text-gray-300 text-sm">更新 #客戶-職缺 狀態</span><span class="tag tag-yq2">YQ2</span><span class="tag tag-auto">自動</span></div>
       </div>
-      <div class="example-box max-w-3xl mx-auto text-xs">
-📝 一條龍指令：
-Jacky：「推王小明給 ABC 客戶」
-→ YQ1：格式化履歷 + 撰寫推薦信
-→ YQ2：發信給 hr@abc.com + 設 3 天提醒 + 更新 Topic</div>
+      <div class="p-3 bg-green-900/20 rounded-lg max-w-3xl mx-auto">
+        <p class="text-green-400 text-sm">✅ YQ1 自動準備 1-3，顧問只需說「推」，YQ2 自動執行 5-7</p>
+      </div>
     </div>
   </div>
 
-  <!-- ========== Slide 12: Phase 6 Interview ========== -->
+  <!-- ========== Slide 17: Phase 6 Interview ========== -->
   <div class="slide">
     <div class="orb orb-2"></div>
     <div class="content">
@@ -456,7 +680,7 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
     </div>
   </div>
 
-  <!-- ========== Slide 13: Phase 7 & 8 ========== -->
+  <!-- ========== Slide 18: Phase 7 & 8 ========== -->
   <div class="slide">
     <div class="orb orb-1"></div>
     <div class="content">
@@ -482,7 +706,7 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
     </div>
   </div>
 
-  <!-- ========== Slide 14: 工具對照表 ========== -->
+  <!-- ========== Slide 19: 工具對照表 ========== -->
   <div class="slide">
     <div class="orb orb-3"></div>
     <div class="orb orb-green"></div>
@@ -518,7 +742,7 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
     </div>
   </div>
 
-  <!-- ========== Slide 15: 優先級 Roadmap ========== -->
+  <!-- ========== Slide 20: 優先級 Roadmap ========== -->
   <div class="slide">
     <div class="orb orb-2"></div>
     <div class="orb orb-green"></div>
@@ -562,7 +786,7 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
     </div>
   </div>
 
-  <!-- ========== Slide 16: 總結 ========== -->
+  <!-- ========== Slide 21: 總結 ========== -->
   <div class="slide">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -576,20 +800,20 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
         </div>
         <div class="text-center">
           <p class="text-4xl font-black accent-green">7</p>
-          <p class="text-gray-400 text-sm">已有功能</p>
+          <p class="text-gray-400 text-sm">AI 自動功能</p>
         </div>
         <div class="text-center">
           <p class="text-4xl font-black accent-orange">3</p>
-          <p class="text-gray-400 text-sm">角色分工</p>
+          <p class="text-gray-400 text-sm">匹配度門檻</p>
         </div>
         <div class="text-center">
           <p class="text-4xl font-black accent-blue">1</p>
-          <p class="text-gray-400 text-sm">履歷池系統</p>
+          <p class="text-gray-400 text-sm">字就能推薦</p>
         </div>
       </div>
       <div class="bg-white/5 rounded-xl p-4 max-w-3xl mx-auto mb-4">
         <p class="text-white font-bold mb-2">🎯 核心理念</p>
-        <p class="text-gray-400 text-sm">YQ1 負責<span class="accent">分析思考</span>｜YQ2 負責<span class="accent-green">執行跟進</span>｜Jacky 負責<span class="accent-orange">關係談判</span></p>
+        <p class="text-gray-400 text-sm">AI 自動準備所有文件 → 顧問<span class="text-white">只需決策「推」或「不推」</span>→ AI 自動執行後續</p>
       </div>
       <div class="bg-white/5 rounded-xl p-4 max-w-3xl mx-auto">
         <p class="text-white font-bold mb-2">🚀 今天就能開始</p>
@@ -600,7 +824,7 @@ Jacky → YQ1：「幫候選人準備面試資料，公司是 ABC 科技」</div
 
   <!-- Progress dots -->
   <div class="progress-container" id="progress"></div>
-  <div class="page-number" id="pageNumber">1 / 16</div>
+  <div class="page-number" id="pageNumber">1 / 21</div>
 
   <script>
     const slides = document.querySelectorAll('.slide');
