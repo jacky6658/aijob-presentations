@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step1ne｜獵頭工作流程 × 職務分配（分享版）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+    * { font-family: 'Noto Sans TC', sans-serif; }
+    body { background: #000; overflow: hidden; }
+
+    .slide {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      position: relative;
+      background: radial-gradient(1200px 600px at 70% 30%, rgba(99,102,241,0.18), transparent 60%),
+                  radial-gradient(900px 500px at 30% 70%, rgba(14,165,233,0.14), transparent 60%),
+                  linear-gradient(135deg, #070707 0%, #0f0f10 50%, #070707 100%);
+      overflow: hidden;
+    }
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(90px);
+      opacity: 0.25;
+      animation: float 18s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .orb-1 { width: 420px; height: 420px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); top: -120px; right: -120px; }
+    .orb-2 { width: 320px; height: 320px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); bottom: -70px; left: -70px; animation-delay: -6s; }
+    .orb-3 { width: 260px; height: 260px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); top: 55%; left: 50%; transform: translate(-50%, -50%); animation-delay: -10s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -18px) scale(1.05); }
+    }
+
+    .accent { color: #60a5fa; }
+    .accent2 { color: #a78bfa; }
+    .muted { color: rgba(255,255,255,0.65); }
+
+    .progress-container {
+      position: fixed;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 50;
+    }
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .progress-dot.active { background: #60a5fa; transform: scale(1.2); }
+
+    .page-number {
+      position: fixed;
+      bottom: 28px;
+      right: 32px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      z-index: 50;
+    }
+
+    .kbd {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      padding: 4px 10px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 12px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: rgba(96,165,250,0.10);
+      border: 1px solid rgba(96,165,250,0.22);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .tag2 {
+      background: rgba(167,139,250,0.10);
+      border: 1px solid rgba(167,139,250,0.22);
+    }
+  </style>
+</head>
+<body>
+  <!-- Slide 1: Cover -->
+  <div class="slide active">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="max-w-5xl mx-auto px-8 text-center">
+      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/80">
+        <span class="text-sm">分享版</span>
+        <span class="text-white/30">•</span>
+        <span class="text-sm">Workflow × Role Assignment</span>
+      </div>
+      <h1 class="mt-10 text-6xl font-black text-white tracking-tight">Step1ne</h1>
+      <h2 class="mt-3 text-3xl font-bold text-white/90">獵頭工作流程 × 職務分配表</h2>
+      <p class="mt-6 text-xl muted">以「八大階段工作流」為主軸，標註各階段<strong class="text-white">職務負責</strong>（含 Bot 協作）。</p>
+      <div class="mt-10 flex items-center justify-center gap-3">
+        <span class="kbd">→</span>
+        <span class="kbd">Space</span>
+        <span class="kbd">←</span>
+        <span class="text-white/50 text-sm">切換頁面</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: 8-stage overview -->
+  <div class="slide">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div>
+    <div class="max-w-6xl mx-auto px-8 w-full">
+      <h2 class="text-5xl font-black text-white text-center">八大階段總覽</h2>
+      <p class="mt-4 text-center muted text-lg">目標：每個階段都有 AI 助力（但決策責任仍由人承擔）</p>
+
+      <div class="mt-12 grid grid-cols-4 gap-5">
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">1</p>
+          <p class="text-white text-2xl font-bold">業務開發</p>
+          <p class="text-white/60">BD</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">2</p>
+          <p class="text-white text-2xl font-bold">人才搜尋</p>
+          <p class="text-white/60">Sourcing</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">3</p>
+          <p class="text-white text-2xl font-bold">初步篩選</p>
+          <p class="text-white/60">Screening</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">4</p>
+          <p class="text-white text-2xl font-bold">人選經營</p>
+          <p class="text-white/60">Engagement</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">5</p>
+          <p class="text-white text-2xl font-bold">推薦客戶</p>
+          <p class="text-white/60">Submission</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">6</p>
+          <p class="text-white text-2xl font-bold">面試協調</p>
+          <p class="text-white/60">Interview</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">7</p>
+          <p class="text-white text-2xl font-bold">Offer 談判</p>
+          <p class="text-white/60">Closing</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-white/80 text-sm">8</p>
+          <p class="text-white text-2xl font-bold">報到跟進</p>
+          <p class="text-white/60">Post-Placement</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-white/60">（下一頁：各階段職務負責）</div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Role assignment by stage -->
+  <div class="slide">
+    <div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="max-w-6xl mx-auto px-8 w-full">
+      <h2 class="text-5xl font-black text-white text-center">職務分配（分享版）</h2>
+      <p class="mt-4 text-center muted text-lg">以下依 Jacky 提供的分工配置（含兩位 Bot 協作）</p>
+
+      <div class="mt-10 grid grid-cols-2 gap-6">
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-white/70 text-sm">1️⃣ BD</p>
+              <p class="text-white text-2xl font-bold">業務開發</p>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag">Jacky</span>
+            <span class="tag tag2">Yuqi（Jacky bot）</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">2️⃣ Sourcing</p>
+          <p class="text-white text-2xl font-bold">人才搜尋</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag">Jacky</span>
+            <span class="tag tag2">Yuqi（Jacky bot）</span>
+            <span class="tag">Phoebe</span>
+            <span class="tag tag2">Mike（Phoebe bot）</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">3️⃣ Screening</p>
+          <p class="text-white text-2xl font-bold">初步篩選</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag tag2">Yuqi（Jacky bot）</span>
+            <span class="tag tag2">Mike（Phoebe bot）</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">4️⃣ Engagement</p>
+          <p class="text-white text-2xl font-bold">人選經營</p>
+          <p class="mt-2 text-white/60 text-sm">（Jacky / Phoebe 會 pass 給各自 Bot 做紀錄，供後續評估與撈履歷用）</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag">Jacky</span>
+            <span class="tag">Phoebe</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">5️⃣ Submission</p>
+          <p class="text-white text-2xl font-bold">推薦客戶</p>
+          <div class="mt-3 space-y-3">
+            <div>
+              <p class="text-white/70 text-sm">非 Email 寄信</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="tag">Jacky</span>
+                <span class="tag">Phoebe</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-white/70 text-sm">用 Email 寄信（目前暫定由 HRYuqi 發送）</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="tag tag2">HRYuqi（Jacky bot）</span>
+                <span class="tag tag2">Mike（Phoebe bot）</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">6️⃣ Interview</p>
+          <p class="text-white text-2xl font-bold">面試協調</p>
+          <div class="mt-3 space-y-3">
+            <div>
+              <p class="text-white/70 text-sm">Google 面試行程安排</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="tag tag2">Yuqi（Jacky bot）</span>
+                <span class="tag tag2">Mike（Phoebe bot）</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-white/70 text-sm">實際面談</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="tag">Jacky</span>
+                <span class="tag">Phoebe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">7️⃣ Closing</p>
+          <p class="text-white text-2xl font-bold">Offer 談判</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag">Jacky</span>
+            <span class="tag">Phoebe</span>
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white/70 text-sm">8️⃣ Post-Placement</p>
+          <p class="text-white text-2xl font-bold">報到跟進</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="tag">Jacky</span>
+            <span class="tag">Phoebe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Notes / operating rules -->
+  <div class="slide">
+    <div class="orb orb-1"></div><div class="orb orb-3"></div>
+    <div class="max-w-5xl mx-auto px-8 w-full">
+      <h2 class="text-5xl font-black text-white text-center">協作規則（補充）</h2>
+      <div class="mt-10 grid grid-cols-1 gap-5">
+        <div class="card p-6">
+          <p class="text-white text-2xl font-bold">Email 外部發送安全規則</p>
+          <p class="mt-3 text-white/75 text-lg">所有外部寄信必須走「<span class="accent font-bold">先預覽</span> → <span class="accent font-bold">人類明確確認</span> → 才送出」流程。</p>
+          <p class="mt-2 text-white/60">（避免誤寄、避免內容/附件錯誤、避免在群組中被誤觸發。）</p>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white text-2xl font-bold">Submission（推薦客戶）雙路徑</p>
+          <ul class="mt-3 text-white/75 text-lg list-disc pl-6 space-y-2">
+            <li><span class="text-white font-semibold">非 Email 寄送</span>：由 Jacky / Phoebe 直接與客戶端窗口溝通與投遞</li>
+            <li><span class="text-white font-semibold">Email 寄送</span>：由 HRYuqi（Jacky bot）主送、Mike（Phoebe bot）協作</li>
+          </ul>
+        </div>
+
+        <div class="card p-6">
+          <p class="text-white text-2xl font-bold">Interview：排程 vs 面談分離</p>
+          <ul class="mt-3 text-white/75 text-lg list-disc pl-6 space-y-2">
+            <li><span class="text-white font-semibold">排程</span>（Google Calendar）：由 Yuqi / Mike 負責自動化與提醒</li>
+            <li><span class="text-white font-semibold">面談</span>：由 Jacky / Phoebe 進行（確保判斷與關係建立）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-white/60">— 完 —</div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-container" id="progress"></div>
+  <div class="page-number" id="pageNumber">1 / 4</div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const progressContainer = document.getElementById('progress');
+    const pageNumber = document.getElementById('pageNumber');
+    let currentSlide = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = `progress-dot ${i === 0 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(i);
+      progressContainer.appendChild(dot);
+    });
+
+    function updateSlide() {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
+      document.querySelectorAll('.progress-dot').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+      pageNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    function goToSlide(index) {
+      currentSlide = Math.max(0, Math.min(slides.length - 1, index));
+      updateSlide();
+    }
+    function nextSlide() { if (currentSlide < slides.length - 1) { currentSlide++; updateSlide(); } }
+    function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    });
+
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => touchStartX = e.touches[0].clientX);
+    document.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.progress-container')) return;
+      const x = e.clientX / window.innerWidth;
+      if (x > 0.7) nextSlide();
+      else if (x < 0.3) prevSlide();
+    });
+  </script>
+</body>
+</html>
