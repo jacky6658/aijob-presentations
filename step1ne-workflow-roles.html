@@ -2,13 +2,13 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Step1ne｜獵頭工作流程 × 職務分配（分享版）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
     * { font-family: 'Noto Sans TC', sans-serif; }
-    body { background: #000; overflow-x: hidden; }
+    body { background: #000; overflow: hidden; }
 
     .slide {
       width: 100vw;
@@ -28,21 +28,23 @@
       align-items: center;
     }
 
-    /* Mobile/RWD: allow vertical scroll within slide */
+    /* Mobile: keep fixed layout, scale-to-fit (no scroll, no pinch zoom) */
+    .scale-wrap {
+      width: 1200px;
+      height: 800px;
+      transform-origin: center center;
+      will-change: transform;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     @media (max-width: 640px) {
-      body { overflow-y: auto; }
-      .slide {
-        height: auto;
-        min-height: 100svh;
-        overflow: visible;
-        padding: 72px 0 96px; /* keep room for progress dots */
-      }
-      .slide.active {
-        display: block;
-      }
       .progress-container { bottom: 16px; gap: 8px; }
       .page-number { bottom: 12px; right: 14px; font-size: 12px; }
       .progress-dot { width: 9px; height: 9px; }
+      /* hint to browsers: treat taps as taps (reduce double-tap zoom behavior) */
+      body { touch-action: manipulation; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -134,7 +136,8 @@
   <!-- Slide 1: Cover -->
   <div class="slide active">
     <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
-    <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+    <div class="scale-wrap">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8 text-center">
       <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/80">
         <span class="text-sm">分享版</span>
         <span class="text-white/30">•</span>
@@ -150,12 +153,14 @@
         <span class="text-white/50 text-sm">切換頁面</span>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- Slide 2: 8-stage overview -->
   <div class="slide">
     <div class="orb orb-1"></div><div class="orb orb-2"></div>
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full">
+    <div class="scale-wrap">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full">
       <h2 class="text-4xl sm:text-5xl font-black text-white text-center">八大階段總覽</h2>
       <p class="mt-4 text-center muted text-base sm:text-lg">目標：每個階段都有 AI 助力（但決策責任仍由人承擔）</p>
 
@@ -204,12 +209,14 @@
 
       <div class="mt-10 text-center text-white/60">（下一頁：各階段職務負責）</div>
     </div>
+    </div>
   </div>
 
   <!-- Slide 3: Role assignment by stage -->
   <div class="slide">
     <div class="orb orb-2"></div><div class="orb orb-3"></div>
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full">
+    <div class="scale-wrap">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full">
       <h2 class="text-4xl sm:text-5xl font-black text-white text-center">職務分配（分享版）</h2>
       <p class="mt-4 text-center muted text-base sm:text-lg">以下依 Jacky 提供的分工配置（含兩位 Bot 協作）</p>
 
@@ -318,12 +325,14 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- Slide 4: Notes / operating rules -->
   <div class="slide">
     <div class="orb orb-1"></div><div class="orb orb-3"></div>
-    <div class="max-w-5xl mx-auto px-5 sm:px-8 w-full">
+    <div class="scale-wrap">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8 w-full">
       <h2 class="text-4xl sm:text-5xl font-black text-white text-center">協作規則（補充）</h2>
       <div class="mt-10 grid grid-cols-1 gap-5">
         <div class="card p-5 sm:p-6">
@@ -351,6 +360,7 @@
 
       <div class="mt-10 text-center text-white/60">— 完 —</div>
     </div>
+    </div>
   </div>
 
   <!-- Progress -->
@@ -363,6 +373,16 @@
     const pageNumber = document.getElementById('pageNumber');
     let currentSlide = 0;
 
+    // Keep a fixed layout and scale to fit viewport (esp. on mobile)
+    const BASE_W = 1200;
+    const BASE_H = 800;
+    function fitScale() {
+      const scale = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
+      document.querySelectorAll('.scale-wrap').forEach((el) => {
+        el.style.transform = `scale(${scale})`;
+      });
+    }
+
     slides.forEach((_, i) => {
       const dot = document.createElement('div');
       dot.className = `progress-dot ${i === 0 ? 'active' : ''}`;
@@ -374,6 +394,7 @@
       slides.forEach((slide, i) => slide.classList.toggle('active', i === currentSlide));
       document.querySelectorAll('.progress-dot').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
       pageNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+      fitScale();
     }
 
     function goToSlide(index) {
@@ -395,14 +416,24 @@
       if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
     });
 
-    // Desktop-only click navigation (avoid interfering with mobile scroll)
+    // Tap/click navigation: tap right side -> next, left side -> prev
     document.addEventListener('click', (e) => {
-      if ('ontouchstart' in window) return;
       if (e.target.closest('.progress-container')) return;
       const x = e.clientX / window.innerWidth;
       if (x > 0.7) nextSlide();
       else if (x < 0.3) prevSlide();
     });
+
+    // Reduce accidental zoom on mobile
+    document.addEventListener('dblclick', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
+    window.addEventListener('resize', fitScale);
+    window.addEventListener('orientationchange', fitScale);
+
+    // initial
+    fitScale();
+
   </script>
 </body>
 </html>
