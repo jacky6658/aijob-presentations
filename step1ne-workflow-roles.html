@@ -31,8 +31,8 @@
 
     /* Mobile: keep fixed layout, scale-to-fit (no scroll, no pinch zoom) */
     .scale-wrap {
-      width: 1200px;
-      height: 800px;
+      width: 900px;
+      height: 600px;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -44,6 +44,8 @@
     }
 
     @media (max-width: 640px) {
+      /* Enlarge font for mobile readability */
+      .scale-wrap { font-size: 120%; }
       .progress-container { bottom: 16px; gap: 8px; }
       .page-number { bottom: 12px; right: 14px; font-size: 12px; }
       .progress-dot { width: 9px; height: 9px; }
@@ -378,8 +380,8 @@
     let currentSlide = 0;
 
     // Keep a fixed layout and scale to fit viewport (esp. on mobile)
-    const BASE_W = 1200;
-    const BASE_H = 800;
+    const BASE_W = 900;
+    const BASE_H = 600;
     function fitScale() {
       const scale = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
       document.querySelectorAll('.scale-wrap').forEach((el) => {
