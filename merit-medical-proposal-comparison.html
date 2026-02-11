@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美德醫療合約談判方案對比</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .plan {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .plan:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+            transform: translateY(-4px);
+        }
+        
+        .plan-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .plan-badge {
+            font-size: 32px;
+            margin-right: 15px;
+        }
+        
+        .plan-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .plan-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .plan-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "▸";
+            color: #667eea;
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        
+        .pros-cons {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .pros, .cons {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .cons {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        
+        .pros h4, .cons h4 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .pros li, .cons li {
+            font-size: 14px;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .pros li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .cons li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        .revenue {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .revenue h4 {
+            font-size: 14px;
+            color: #e65100;
+            margin-bottom: 8px;
+        }
+        
+        .revenue-item {
+            font-size: 14px;
+            padding: 4px 0;
+        }
+        
+        .highlight {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .decision-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .decision-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .decision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .decision-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .decision-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .decision-item span {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .recommendation {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .recommendation h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .recommendation ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .recommendation li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+        }
+        
+        .recommendation li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .documents {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .documents h3 {
+            font-size: 18px;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        
+        .documents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .documents li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .documents li::before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .decision-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 美德醫療合約談判方案對比</h1>
+            <p>內部討論文件 | 2026-02-11</p>
+        </div>
+        
+        <div class="content">
+            <div class="comparison">
+                <!-- 方案 A -->
+                <div class="plan">
+                    <div class="plan-header">
+                        <div class="plan-badge">🔒</div>
+                        <div>
+                            <div class="plan-title">方案 A：綁定長約</div>
+                            <div class="plan-subtitle">穩健派推薦</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">費率結構</div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">首次合作</div>
+                                24%（外派）/ 20%（台北）
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">後續職缺</div>
+                                維持 24% / 20%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">綁定條件</div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                ✅ 簽 1 年合約，保證 3-5 個職缺
+                            </div>
+                            <div class="info-item">
+                                ✅ 推薦成功後 1 個月內付款
+                            </div>
+                            <div class="info-item">
+                                ✅ 優先承接權（新職缺優先找我們）
+                            </div>
+                            <div class="info-item">
+                                ✅ 保證期退費 50%（公司辭退）
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">優劣分析</div>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ 優勢</h4>
+                                <ul>
+                                    <li>鎖定長期合作</li>
+                                    <li>穩定營收預期</li>
+                                    <li>客戶不會流失</li>
+                                    <li>快速成交（客戶壓力小）</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ 風險</h4>
+                                <ul>
+                                    <li>客戶可能不願簽長約</li>
+                                    <li>費率永久降低</li>
+                                    <li>定價權受限</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">營收預估</div>
+                        <div class="revenue">
+                            <h4>💰 1 年 5 個職缺，平均年薪 200 萬</h4>
+                            <div class="revenue-item">總營收：200萬 × 22% × 5 = <span class="highlight">220 萬</span></div>
+                            <div class="revenue-item">標準費率：200萬 × 24% × 5 = 240 萬</div>
+                            <div class="revenue-item">損失：<span class="highlight">20 萬/年</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 方案 B+ -->
+                <div class="plan">
+                    <div class="plan-header">
+                        <div class="plan-badge">📈</div>
+                        <div>
+                            <div class="plan-title">方案 B+：階段性費率</div>
+                            <div class="plan-subtitle">成長派推薦</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">費率結構</div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">首次合作（2 個職缺）</div>
+                                24%（外派）/ 20%（台北）
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">後續選項 1：單次合作</div>
+                                恢復標準費率 26% / 22%
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">後續選項 2：簽年度合約</div>
+                                維持 24% / 20%（5 個職缺以上）
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">綁定條件</div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                ✅ 首次合作無綁定（客戶自由選擇）
+                            </div>
+                            <div class="info-item">
+                                ✅ 保證期退費 50%（公司辭退）
+                            </div>
+                            <div class="info-item">
+                                ✅ 優惠截止日期：2026/02/28
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">優劣分析</div>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>✅ 優勢</h4>
+                                <ul>
+                                    <li>彈性高，客戶無壓力</li>
+                                    <li>保留定價權</li>
+                                    <li>測試客戶黏著度</li>
+                                    <li>後續有漲價空間</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>❌ 風險</h4>
+                                <ul>
+                                    <li>可能只做 2 個職缺就結束</li>
+                                    <li>漲價時客戶可能流失</li>
+                                    <li>營收不穩定</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-section">
+                        <div class="section-title">營收預估</div>
+                        <div class="revenue">
+                            <h4>💰 平均年薪 200 萬</h4>
+                            <div class="revenue-item"><strong>最佳情況（5 職缺）：</strong></div>
+                            <div class="revenue-item">• 首次 2 職缺：200萬 × 22% × 2 = 88 萬</div>
+                            <div class="revenue-item">• 後續 3 職缺：200萬 × 24% × 3 = 144 萬</div>
+                            <div class="revenue-item">• 總計：<span class="highlight">232 萬</span>（接近標準費率）</div>
+                            <div class="revenue-item" style="margin-top: 10px;"><strong>最差情況（2 職缺）：</strong></div>
+                            <div class="revenue-item">• 總計：<span class="highlight">88 萬</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="decision-section">
+                <h2>🎯 決策指南</h2>
+                
+                <div class="decision-grid">
+                    <div class="decision-item">
+                        <strong>想要穩定營收</strong>
+                        <span>→ 選擇方案 A</span>
+                    </div>
+                    <div class="decision-item">
+                        <strong>想保留定價權</strong>
+                        <span>→ 選擇方案 B+</span>
+                    </div>
+                    <div class="decision-item">
+                        <strong>想快速成交</strong>
+                        <span>→ 選擇方案 A（客戶壓力小）</span>
+                    </div>
+                    <div class="decision-item">
+                        <strong>想測試市場定位</strong>
+                        <span>→ 選擇方案 B+（看客戶是否認可服務價值）</span>
+                    </div>
+                </div>
+                
+                <div class="recommendation">
+                    <h3>💡 推薦建議</h3>
+                    <ul>
+                        <li>如果美德醫療是「戰略客戶」（上市公司、長期需求）→ <strong>方案 A</strong></li>
+                        <li>如果只是「一般客戶」（不確定長期合作）→ <strong>方案 B+</strong></li>
+                        <li>考量點：美德醫療是上市公司，有持續招募需求，建議優先考慮方案 A</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="documents">
+                <h3>📝 需要準備的文件</h3>
+                <ul>
+                    <li>正式合約（費率、保證期、退費條款）</li>
+                    <li>服務說明書（深度訪談、面試輔導、到職追蹤等）</li>
+                    <li>美德醫療市場研究簡報（展示專業度）</li>
+                    <li>成功案例（如有）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
