@@ -12,7 +12,7 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             min-height: 100vh;
             padding: 20px;
             color: #333;
@@ -27,10 +27,21 @@
             overflow: hidden;
         }
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
+        }
+        .header .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .header .logo svg {
+            width: 60px;
+            height: 60px;
         }
         .header h1 {
             font-size: 2.5em;
@@ -64,14 +75,14 @@
             margin-bottom: 50px;
         }
         .section h2 {
-            color: #667eea;
+            color: #4facfe;
             font-size: 2em;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid #4facfe;
         }
         .section h3 {
-            color: #764ba2;
+            color: #00a8cc;
             font-size: 1.5em;
             margin: 25px 0 15px;
         }
@@ -82,7 +93,7 @@
             margin: 20px 0;
         }
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 25px;
             border-radius: 15px;
@@ -123,7 +134,7 @@
         .bar-fill {
             flex: 1;
             height: 30px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
             border-radius: 5px;
             display: flex;
             align-items: center;
@@ -138,7 +149,7 @@
             margin: 20px 0;
         }
         .tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -155,13 +166,13 @@
         }
         .strategy-card {
             background: #f8f9fa;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #4facfe;
             padding: 20px;
             margin: 15px 0;
             border-radius: 10px;
         }
         .strategy-card h4 {
-            color: #667eea;
+            color: #4facfe;
             font-size: 1.3em;
             margin-bottom: 10px;
         }
@@ -173,14 +184,14 @@
             color: #555;
         }
         .highlight-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border: 2px solid #667eea;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+            border: 2px solid #4facfe;
             border-radius: 15px;
             padding: 25px;
             margin: 20px 0;
         }
         .highlight-box strong {
-            color: #667eea;
+            color: #4facfe;
             font-size: 1.2em;
         }
         table {
@@ -193,7 +204,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         thead {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
             color: white;
         }
         th, td {
@@ -204,7 +215,7 @@
             background: #f8f9fa;
         }
         tbody tr:hover {
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(79, 172, 254, 0.1);
         }
         .priority-high {
             color: #e74c3c;
@@ -236,6 +247,28 @@
     
     <div class="container">
         <div class="header">
+            <div class="logo">
+                <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <!-- S -->
+                    <path d="M25 15 Q15 15 15 25 Q15 35 25 35 L35 35 Q45 35 45 45 Q45 55 35 55 L15 55" 
+                          stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- T -->
+                    <line x1="55" y1="15" x2="75" y2="15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="65" y1="15" x2="65" y2="55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <!-- E -->
+                    <path d="M85 15 L85 55 L110 55 M85 35 L105 35 M85 15 L110 15" 
+                          stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- P -->
+                    <path d="M120 15 L120 55 M120 15 L135 15 Q145 15 145 25 Q145 35 135 35 L120 35" 
+                          stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- 1 -->
+                    <line x1="155" y1="20" x2="160" y2="15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="160" y1="15" x2="160" y2="55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="155" y1="55" x2="165" y2="55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    <!-- ne -->
+                    <text x="170" y="47" font-size="28" fill="white" font-weight="300">ne</text>
+                </svg>
+            </div>
             <h1>🎯 Step1ne 獵頭市場調查分析報告</h1>
             <p>全方位市場分析 × 職缺需求 × 人選搜尋策略</p>
             <p style="font-size: 0.9em; margin-top: 10px;">報告日期：2026-02-11</p>
@@ -252,11 +285,11 @@
                         <div class="label">目標企業數</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">8</div>
+                        <div class="number">3</div>
                         <div class="label">開放職缺數</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">14</div>
+                        <div class="number">2-8</div>
                         <div class="label">需求人數</div>
                     </div>
                     <div class="stat-card">
@@ -346,52 +379,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>AI工程師</strong></td>
-                            <td>AIJob內部</td>
-                            <td>2人</td>
-                            <td>80k-120k</td>
-                            <td>3年以上</td>
-                            <td class="priority-high">🔴 高</td>
-                        </tr>
-                        <tr>
-                            <td><strong>全端工程師</strong></td>
-                            <td>AIJob內部</td>
-                            <td>3人</td>
-                            <td>70k-110k</td>
-                            <td>2年以上</td>
-                            <td class="priority-high">🔴 高</td>
-                        </tr>
-                        <tr>
-                            <td><strong>產品經理</strong></td>
-                            <td>AIJob內部</td>
-                            <td>1人</td>
-                            <td>90k-140k</td>
-                            <td>5年以上</td>
-                            <td class="priority-medium">🟡 中</td>
-                        </tr>
-                        <tr>
-                            <td><strong>數據分析師</strong></td>
-                            <td>AIJob內部</td>
-                            <td>1人</td>
-                            <td>60k-90k</td>
-                            <td>2年以上</td>
-                            <td class="priority-medium">🟡 中</td>
-                        </tr>
-                        <tr>
                             <td><strong>BIM工程師</strong></td>
                             <td>律准科技</td>
                             <td>1-6人</td>
                             <td>40k以上</td>
                             <td>1年以上</td>
-                            <td class="priority-medium">🟡 中</td>
-                        </tr>
-                        <tr>
-                            <td><strong>HR 招募專員</strong></td>
-                            <td>AIJob內部</td>
-                            <td>1人</td>
-                            <td>50k-70k</td>
-                            <td>1年以上</td>
-                            <td class="priority-low">⚪ 低</td>
+                            <td class="priority-high">🔴 高</td>
                         </tr>
                         <tr>
                             <td><strong>會計經理/協理</strong></td>
@@ -399,7 +392,7 @@
                             <td>1人</td>
                             <td>150k-250k</td>
                             <td>15年以上</td>
-                            <td class="priority-low">⚪ 低（外派）</td>
+                            <td class="priority-medium">🟡 中（外派）</td>
                         </tr>
                         <tr>
                             <td><strong>文件管理師</strong></td>
@@ -417,45 +410,41 @@
                     <div class="bar-chart">
                         <div class="bar">
                             <div class="bar-label">高薪職缺 (≥100k)</div>
-                            <div class="bar-fill" style="width: 25%;">25% - AI工程師、產品經理、會計協理</div>
-                        </div>
-                        <div class="bar">
-                            <div class="bar-label">中薪職缺 (60-99k)</div>
-                            <div class="bar-fill" style="width: 38%;">38% - 全端工程師、數據分析師</div>
+                            <div class="bar-fill" style="width: 33%;">33% - 會計協理</div>
                         </div>
                         <div class="bar">
                             <div class="bar-label">基礎職缺 (<60k)</div>
-                            <div class="bar-fill" style="width: 37%;">37% - HR、BIM工程師、文件管理師</div>
+                            <div class="bar-fill" style="width: 67%;">67% - BIM工程師、文件管理師</div>
                         </div>
                     </div>
                 </div>
 
                 <h3>🛠️ 技能需求熱度圖</h3>
                 <div class="tag-cloud">
-                    <span class="tag high">Python</span>
-                    <span class="tag high">AI / Machine Learning</span>
-                    <span class="tag high">React</span>
-                    <span class="tag medium">Node.js</span>
-                    <span class="tag medium">TypeScript</span>
-                    <span class="tag medium">SQL</span>
-                    <span class="tag medium">深度學習</span>
-                    <span class="tag">數據分析</span>
-                    <span class="tag">視覺化</span>
-                    <span class="tag">產品規劃</span>
-                    <span class="tag">敏捷開發</span>
-                    <span class="tag">Revit</span>
-                    <span class="tag">BIM</span>
-                    <span class="tag">AutoCAD</span>
+                    <span class="tag high">Revit</span>
+                    <span class="tag high">BIM</span>
+                    <span class="tag high">AutoCAD</span>
+                    <span class="tag medium">ISO19650</span>
+                    <span class="tag medium">Dynamo</span>
+                    <span class="tag medium">Python</span>
+                    <span class="tag">財務會計</span>
+                    <span class="tag">IFRS</span>
+                    <span class="tag">成本核算</span>
+                    <span class="tag">稅務申報</span>
+                    <span class="tag">鼎新T100</span>
+                    <span class="tag">內控稽核</span>
+                    <span class="tag">SharePoint</span>
+                    <span class="tag">文件管理</span>
                 </div>
 
                 <div class="highlight-box">
                     <strong>📈 需求趨勢分析：</strong>
                     <ul style="margin-top: 10px;">
-                        <li><strong>技術職缺佔主導</strong>：87.5% (7/8) 為技術相關職位，只有 1 個 HR 職位</li>
-                        <li><strong>Python 為核心技能</strong>：出現在 AI工程師、數據分析師、BIM工程師 3 個職位</li>
-                        <li><strong>全端 + AI 需求最高</strong>：全端工程師 (3人) + AI工程師 (2人) = 5人，佔總需求 36%</li>
-                        <li><strong>經驗門檻適中</strong>：2-3 年經驗為主流 (5/8 職位)，利於快速填補</li>
-                        <li><strong>薪資競爭力強</strong>：平均薪資 80k+，高於市場中位數，有利於吸引優質人選</li>
+                        <li><strong>BIM工程師需求最大</strong>：1-6 人需求，律准科技擴編工程團隊</li>
+                        <li><strong>跨領域職缺組合</strong>：工程建築（BIM）+ 財會管理（會計協理）+ 行政支援（文管）</li>
+                        <li><strong>經驗要求兩極化</strong>：資深主管（15年）vs 基礎專員（1-2年）</li>
+                        <li><strong>薪資差距大</strong>：150k-250k（會計協理外派）vs 40k-45k（文管/BIM）</li>
+                        <li><strong>特殊條件職缺</strong>：會計協理需外派柬埔寨，屬高難度招募</li>
                     </ul>
                 </div>
             </div>
@@ -549,103 +538,7 @@
             <div class="section">
                 <h2>🔍 四、人選搜尋策略 (Sourcing Strategy)</h2>
 
-                <h3>🎯 AI工程師 (2人，80k-120k)</h3>
-                <div class="strategy-card">
-                    <h4>📋 目標人選畫像</h4>
-                    <ul>
-                        <li><strong>技能</strong>：Python + Machine Learning / 深度學習框架 (TensorFlow, PyTorch)</li>
-                        <li><strong>經驗</strong>：3-5 年 AI/ML 專案經驗，有實際模型部署經驗佳</li>
-                        <li><strong>背景</strong>：資工、資科、統計、數學相關科系</li>
-                        <li><strong>加分項</strong>：有 Kaggle 競賽經驗、GitHub 開源專案、技術部落格</li>
-                    </ul>
-                    <h4>🔎 搜尋策略</h4>
-                    <ul>
-                        <li><strong>GitHub</strong>：搜尋關鍵字「machine learning taiwan」「deep learning taipei」，語言篩選 Python，活躍度 >50 commits/年</li>
-                        <li><strong>LinkedIn</strong>：職稱「AI Engineer」「Machine Learning Engineer」，地區「Taipei」，3-5 年經驗</li>
-                        <li><strong>CakeResume</strong>：技能標籤「Python」「TensorFlow」「PyTorch」「深度學習」</li>
-                        <li><strong>社群</strong>：AI/ML 台灣社群 (Facebook, Meetup)，研討會講者與積極參與者</li>
-                    </ul>
-                    <h4>📊 預估人才池</h4>
-                    <ul>
-                        <li>台灣 AI 工程師總數約 3,000-5,000 人，符合 3+ 年經驗約 1,500 人</li>
-                        <li>扣除在職穩定者，潛在活躍求職者約 200-300 人</li>
-                        <li><strong>建議目標</strong>：初步篩選 30-50 份履歷，深度洽談 10-15 人，推薦 5-8 人</li>
-                    </ul>
-                </div>
-
-                <h3>💻 全端工程師 (3人，70k-110k)</h3>
-                <div class="strategy-card">
-                    <h4>📋 目標人選畫像</h4>
-                    <ul>
-                        <li><strong>技能</strong>：React + Node.js + TypeScript + 資料庫 (PostgreSQL/MySQL)</li>
-                        <li><strong>經驗</strong>：2-4 年全端開發經驗，至少參與過 2 個完整專案</li>
-                        <li><strong>背景</strong>：資工、資管相關科系，或自學轉職者（作品集優秀）</li>
-                        <li><strong>加分項</strong>：有 AWS/GCP 部署經驗、CI/CD 經驗、開源貢獻</li>
-                    </ul>
-                    <h4>🔎 搜尋策略</h4>
-                    <ul>
-                        <li><strong>GitHub</strong>：搜尋「react node taiwan」「fullstack developer taipei」，語言篩選 JavaScript/TypeScript</li>
-                        <li><strong>LinkedIn</strong>：職稱「Full Stack Developer」「Full Stack Engineer」，技能「React」「Node.js」</li>
-                        <li><strong>CakeResume</strong>：技能組合「React + Node.js + TypeScript」，經驗 2-4 年</li>
-                        <li><strong>104/1111</strong>：反向搜尋「全端工程師 台北」，主動聯繫開放求職者</li>
-                    </ul>
-                    <h4>📊 預估人才池</h4>
-                    <ul>
-                        <li>全端工程師市場供給充足，台北地區約 5,000-8,000 人</li>
-                        <li>符合 2+ 年經驗約 3,000 人，開放求職者約 500-800 人</li>
-                        <li><strong>建議目標</strong>：初步篩選 50-80 份履歷，深度洽談 20-30 人，推薦 10-15 人</li>
-                    </ul>
-                </div>
-
-                <h3>📊 數據分析師 (1人，60k-90k)</h3>
-                <div class="strategy-card">
-                    <h4>📋 目標人選畫像</h4>
-                    <ul>
-                        <li><strong>技能</strong>：Python + SQL + 數據分析工具 (Pandas, NumPy) + 視覺化 (Tableau, Power BI)</li>
-                        <li><strong>經驗</strong>：2-3 年數據分析經驗，有商業分析報告產出經驗</li>
-                        <li><strong>背景</strong>：統計、數學、經濟、資管相關科系</li>
-                        <li><strong>加分項</strong>：有 A/B Testing 經驗、商業洞察力強、溝通表達能力佳</li>
-                    </ul>
-                    <h4>🔎 搜尋策略</h4>
-                    <ul>
-                        <li><strong>LinkedIn</strong>：職稱「Data Analyst」「Business Analyst」，技能「Python」「SQL」「Tableau」</li>
-                        <li><strong>CakeResume</strong>：技能「數據分析」「Python」「SQL」，經驗 2-3 年</li>
-                        <li><strong>104/1111</strong>：職稱「數據分析師」「資料分析師」，台北地區</li>
-                        <li><strong>社群</strong>：PyData Taipei、台灣資料科學年會參與者</li>
-                    </ul>
-                    <h4>📊 預估人才池</h4>
-                    <ul>
-                        <li>數據分析師約 2,000-3,000 人，但多數集中在金融、電商產業</li>
-                        <li>願意轉職到新創/AI 產業約 300-500 人</li>
-                        <li><strong>建議目標</strong>：初步篩選 20-30 份履歷，深度洽談 8-12 人，推薦 3-5 人</li>
-                    </ul>
-                </div>
-
-                <h3>📦 產品經理 (1人，90k-140k)</h3>
-                <div class="strategy-card">
-                    <h4>📋 目標人選畫像</h4>
-                    <ul>
-                        <li><strong>技能</strong>：產品規劃、使用者研究、敏捷開發、Roadmap 制定</li>
-                        <li><strong>經驗</strong>：5+ 年產品管理經驗，至少 2 個 0→1 產品經驗</li>
-                        <li><strong>背景</strong>：不限科系，但需有強烈的商業敏感度與技術理解力</li>
-                        <li><strong>加分項</strong>：有 SaaS/AI 產品經驗、跨團隊協作經驗、數據驅動決策能力</li>
-                    </ul>
-                    <h4>🔎 搜尋策略</h4>
-                    <ul>
-                        <li><strong>LinkedIn</strong>：職稱「Product Manager」「Senior PM」，台北地區，5+ 年經驗</li>
-                        <li><strong>CakeResume</strong>：職稱「產品經理」「產品負責人」，有 SaaS/新創經驗</li>
-                        <li><strong>獵頭推薦</strong>：這個職級建議透過獵頭網絡推薦，或直接挖角競品公司</li>
-                        <li><strong>社群</strong>：Product Tank Taipei、PM 聚會成員</li>
-                    </ul>
-                    <h4>📊 預估人才池</h4>
-                    <ul>
-                        <li>Senior PM 人才稀缺，台灣約 500-800 人，開放求職者約 50-100 人</li>
-                        <li>競爭激烈，需要強力的 Employer Branding 與薪資競爭力</li>
-                        <li><strong>建議目標</strong>：初步篩選 10-15 份履歷，深度洽談 5-8 人，推薦 2-3 人</li>
-                    </ul>
-                </div>
-
-                <h3>🏗️ BIM工程師 (1-6人，40k+)</h3>
+                <h3>🏗️ BIM工程師 (1-6人，40k+) — 律准科技</h3>
                 <div class="strategy-card">
                     <h4>📋 目標人選畫像</h4>
                     <ul>
@@ -669,13 +562,60 @@
                     </ul>
                 </div>
 
+                <h3>💼 會計經理/協理 (1人，150k-250k) — 美德醫療（外派柬埔寨）</h3>
+                <div class="strategy-card">
+                    <h4>📋 目標人選畫像</h4>
+                    <ul>
+                        <li><strong>技能</strong>：財務會計 + IFRS + 成本核算 + 稅務申報 + 鼎新T100 + 內控稽核</li>
+                        <li><strong>經驗</strong>：15+ 年財會經驗，至少 5 年主管經驗，有製造業/醫療業經驗佳</li>
+                        <li><strong>背景</strong>：會計、財務相關科系，CPA 或國際會計證照佳</li>
+                        <li><strong>加分項</strong>：有海外工作經驗、東南亞財稅熟悉、英文溝通能力強</li>
+                        <li><strong>關鍵條件</strong>：願意外派柬埔寨（RMKH廠區），適應力強</li>
+                    </ul>
+                    <h4>🔎 搜尋策略</h4>
+                    <ul>
+                        <li><strong>LinkedIn</strong>：職稱「財務經理」「會計主管」「Finance Manager」，有製造業/海外經驗</li>
+                        <li><strong>104/1111</strong>：職稱「會計經理」「財務經理」，篩選 15+ 年經驗</li>
+                        <li><strong>獵頭推薦</strong>：透過獵頭網絡推薦有外派意願的資深主管</li>
+                        <li><strong>人脈推薦</strong>：向現職財會主管、會計師事務所尋求推薦</li>
+                    </ul>
+                    <h4>📊 預估人才池</h4>
+                    <ul>
+                        <li>資深會計經理約 500-800 人，但願意外派者僅 50-100 人</li>
+                        <li>外派條件為主要篩選障礙，需要強力溝通外派福利</li>
+                        <li><strong>建議目標</strong>：初步篩選 10-15 份履歷，深度洽談 5-8 人，推薦 2-3 人</li>
+                    </ul>
+                </div>
+
+                <h3>📄 文件管理師 (1人，40k-45k) — 律准科技</h3>
+                <div class="strategy-card">
+                    <h4>📋 目標人選畫像</h4>
+                    <ul>
+                        <li><strong>技能</strong>：文件整理 + SharePoint + 英文文件處理 + Office 軟體</li>
+                        <li><strong>經驗</strong>：2+ 年文件管理或行政經驗，有工程文件經驗佳</li>
+                        <li><strong>背景</strong>：不限科系，但需細心、組織能力強</li>
+                        <li><strong>加分項</strong>：英文能力（讀寫）、熟悉 SharePoint 或文管系統</li>
+                    </ul>
+                    <h4>🔎 搜尋策略</h4>
+                    <ul>
+                        <li><strong>104/1111</strong>：職稱「文件管理師」「文管專員」「行政專員」，台中/梧棲地區</li>
+                        <li><strong>LinkedIn</strong>：技能「Document Management」「SharePoint」「Administration」</li>
+                        <li><strong>人力銀行</strong>：主動刊登職缺，吸引主動應徵者</li>
+                    </ul>
+                    <h4>📊 預估人才池</h4>
+                    <ul>
+                        <li>文管/行政專員市場供給充足，台中地區約 500-800 人</li>
+                        <li>符合 2+ 年經驗約 300 人，開放求職者約 100-150 人</li>
+                        <li><strong>建議目標</strong>：初步篩選 20-30 份履歷，深度洽談 10-15 人，推薦 5-8 人</li>
+                    </ul>
+                </div>
+
                 <div class="highlight-box">
                     <strong>🎯 總體 Sourcing 優先順序：</strong>
                     <ul style="margin-top: 10px;">
-                        <li><strong>第一優先</strong>：全端工程師 (3人) - 人才池大，成功率高</li>
-                        <li><strong>第二優先</strong>：AI工程師 (2人) - 高薪資，高附加價值</li>
-                        <li><strong>第三優先</strong>：數據分析師 (1人) + 產品經理 (1人)</li>
-                        <li><strong>第四優先</strong>：BIM工程師 (1-6人) - 特殊領域，需專門渠道</li>
+                        <li><strong>第一優先</strong>：BIM工程師 (1-6人) - 需求量最大，人才池相對充足</li>
+                        <li><strong>第二優先</strong>：文件管理師 (1人) - 市場供給大，填補容易</li>
+                        <li><strong>第三優先</strong>：會計經理/協理 (1人) - 高難度（外派條件），需長期經營</li>
                     </ul>
                 </div>
 
@@ -691,34 +631,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>GitHub</strong></td>
-                            <td>AI工程師、全端工程師</td>
-                            <td>實際代碼品質、開源貢獻</td>
-                            <td>搜尋關鍵字 + 地區 + 語言篩選</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LinkedIn</strong></td>
-                            <td>所有職位</td>
-                            <td>專業背景完整、職涯軌跡清晰</td>
-                            <td>InMail 主動聯繫，建立長期關係</td>
-                        </tr>
-                        <tr>
-                            <td><strong>CakeResume</strong></td>
-                            <td>技術職位、設計職位</td>
-                            <td>作品集展示、求職意願明確</td>
-                            <td>技能標籤搜尋，篩選開放求職者</td>
-                        </tr>
-                        <tr>
                             <td><strong>104/1111</strong></td>
-                            <td>BIM工程師、HR、文管</td>
+                            <td>BIM工程師、文管、會計經理</td>
                             <td>主流求職平台、涵蓋廣泛</td>
                             <td>反向搜尋，主動聯繫開放履歷</td>
                         </tr>
                         <tr>
+                            <td><strong>LinkedIn</strong></td>
+                            <td>會計經理、BIM工程師</td>
+                            <td>專業背景完整、職涯軌跡清晰</td>
+                            <td>InMail 主動聯繫，建立長期關係</td>
+                        </tr>
+                        <tr>
+                            <td><strong>獵頭推薦</strong></td>
+                            <td>會計經理（外派）</td>
+                            <td>被動人才、高階主管</td>
+                            <td>透過獵頭網絡推薦有外派意願者</td>
+                        </tr>
+                        <tr>
                             <td><strong>社群/論壇</strong></td>
-                            <td>所有職位</td>
-                            <td>被動人才、高品質推薦</td>
-                            <td>參與活動、建立人脈、長期經營</td>
+                            <td>BIM工程師</td>
+                            <td>專業社群、高品質推薦</td>
+                            <td>BIM Taiwan、營建業社團、校友會</td>
                         </tr>
                     </tbody>
                 </table>
@@ -732,7 +666,7 @@
                 <div class="chart-container">
                     <ul style="line-height: 2;">
                         <li><strong>AI 自動化工具</strong>：YQ1 + YQ2 協作，履歷自動匹配、BD 自動化，效率提升 30-40%</li>
-                        <li><strong>產業專注</strong>：深耕 AI、資訊軟體、半導體產業，建立專業形象</li>
+                        <li><strong>跨領域覆蓋</strong>：工程建築（BIM）+ 財會管理 + 行政支援，服務範圍廣</li>
                         <li><strong>數據驅動</strong>：Google Sheets + Dashboard 即時追蹤，決策有據</li>
                         <li><strong>快速回應</strong>：自動化流程縮短回應時間，提升候選人與客戶體驗</li>
                     </ul>
@@ -742,8 +676,8 @@
                 <div class="chart-container">
                     <ul style="line-height: 2;">
                         <li><strong>品牌知名度低</strong>：Step1ne 為新創獵頭品牌，需建立信任</li>
-                        <li><strong>人才競爭激烈</strong>：AI/全端工程師為熱門職位，大型獵頭公司資源豐富</li>
-                        <li><strong>客戶數量少</strong>：目前僅 26 家潛在客戶，需快速擴展</li>
+                        <li><strong>職缺數量少</strong>：目前僅 3 個開放職缺，需快速擴展客戶基礎</li>
+                        <li><strong>外派職缺難填</strong>：會計經理外派柬埔寨，條件特殊，成功率較低</li>
                         <li><strong>成交週期長</strong>：獵頭業務從接觸到成交平均 1-3 個月</li>
                     </ul>
                 </div>
@@ -789,26 +723,26 @@
                     <tbody>
                         <tr>
                             <td><strong>Week 1</strong></td>
-                            <td>追蹤已寄出 6 家 BD 回覆、補齊 Tier 2 聯絡資訊、啟動 AI/全端人選搜尋</td>
-                            <td>獲得 2-3 家回覆、補齊 5 家聯絡資訊、篩選 30 份履歷</td>
+                            <td>追蹤已寄出 6 家 BD 回覆、補齊 Tier 2 聯絡資訊、啟動 BIM/文管人選搜尋</td>
+                            <td>獲得 2-3 家回覆、補齊 5 家聯絡資訊、篩選 20-30 份履歷</td>
                             <td>Jacky + YQ2</td>
                         </tr>
                         <tr>
                             <td><strong>Week 2</strong></td>
                             <td>完成 Tier 1+2 電話拜訪、深度洽談候選人、測試自動匹配系統</td>
-                            <td>面談 3-5 家客戶、深度洽談 15 位候選人、系統穩定運行</td>
+                            <td>面談 3-5 家客戶、深度洽談 8-10 位候選人、系統穩定運行</td>
                             <td>Jacky + YQ1</td>
                         </tr>
                         <tr>
                             <td><strong>Week 3</strong></td>
                             <td>推薦候選人給客戶、爭取簽訂委任合約、擴展 BD 名單到 50 家</td>
-                            <td>推薦 10 位候選人、簽訂 2 個委任、BD 名單達 50 家</td>
+                            <td>推薦 5-8 位候選人、簽訂 1-2 個委任、BD 名單達 50 家</td>
                             <td>Jacky + YQ2</td>
                         </tr>
                         <tr>
                             <td><strong>Week 4</strong></td>
-                            <td>追蹤面試進度、優化流程、準備第二波 BD</td>
-                            <td>安排 5-8 場面試、流程文件化、50 家 BD 完成分類</td>
+                            <td>追蹤面試進度、啟動會計經理外派職缺搜尋、優化流程</td>
+                            <td>安排 3-5 場面試、會計經理篩選 5-10 份履歷、流程文件化</td>
                             <td>Jacky + YQ1 + YQ2</td>
                         </tr>
                     </tbody>
@@ -833,26 +767,26 @@
                     <ol style="line-height: 2; font-size: 1.1em;">
                         <li>📧 <strong>追蹤 BD 回覆</strong>：致電/Email 已寄出的 6 家公司，爭取面談機會</li>
                         <li>📞 <strong>補齊聯絡資訊</strong>：完成 Tier 2 的 7 家公司電話/Email 補齊</li>
-                        <li>🔍 <strong>啟動人選搜尋</strong>：AI工程師 + 全端工程師優先，目標篩選 30-50 份履歷</li>
-                        <li>📊 <strong>測試匹配系統</strong>：用 3 份測試履歷驗證自動匹配準確度</li>
+                        <li>🔍 <strong>啟動人選搜尋</strong>：BIM工程師 + 文管專員優先，目標篩選 20-30 份履歷</li>
+                        <li>📊 <strong>測試匹配系統</strong>：用 2-3 份測試履歷驗證自動匹配準確度</li>
                         <li>📝 <strong>優化 BD 話術</strong>：根據前 6 家回覆狀況，調整 BD 信與電話話術</li>
                     </ol>
                 </div>
 
-                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2)); border-color: #764ba2;">
-                    <strong style="font-size: 1.3em; color: #764ba2;">💡 最後提醒：</strong>
+                <div class="highlight-box" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.2)); border-color: #00f2fe;">
+                    <strong style="font-size: 1.3em; color: #00a8cc;">💡 最後提醒：</strong>
                     <p style="margin-top: 15px; font-size: 1.1em; line-height: 1.8;">
-                        獵頭業務是「馬拉松，不是短跑」。目前我們有 26 家潛在客戶、8 個職缺、14 個需求人數，這是很好的起點。
+                        獵頭業務是「馬拉松，不是短跑」。目前我們有 26 家潛在客戶、3 個職缺、2-8 個需求人數，這是穩健的起點。
                         <br><br>
-                        <strong>關鍵成功因素</strong>：持續擴展 BD 名單（目標 50-100 家）、建立專業形象（醫療AI/資安/半導體）、善用自動化工具提升效率、專注高價值職缺（AI工程師、全端工程師）。
+                        <strong>關鍵成功因素</strong>：持續擴展 BD 名單（目標 50-100 家）、建立專業形象（醫療AI/資安/半導體/工程建築）、善用自動化工具提升效率、優先填補基礎職缺（BIM/文管）建立成功案例。
                         <br><br>
-                        <strong>預期時間表</strong>：Week 1-2 建立關係、Week 3-4 推薦候選人、Month 2-3 開始成交。
+                        <strong>預期時間表</strong>：Week 1-2 建立關係 + 人選搜尋、Week 3-4 推薦候選人、Month 2-3 開始成交。
                     </p>
                 </div>
             </div>
 
             <div style="text-align: center; padding: 40px; background: #f8f9fa; margin-top: 50px; border-radius: 15px;">
-                <p style="font-size: 1.2em; color: #667eea; font-weight: 600;">📊 報告製作：YuQi (YQ1) AI 助理</p>
+                <p style="font-size: 1.2em; color: #4facfe; font-weight: 600;">📊 報告製作：YuQi (YQ1) AI 助理</p>
                 <p style="color: #999; margin-top: 10px;">資料來源：BD客戶開發表、step1ne 職缺管理、104 市場調查</p>
                 <p style="color: #999;">報告日期：2026-02-11</p>
             </div>
