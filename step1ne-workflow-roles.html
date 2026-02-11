@@ -29,7 +29,7 @@
       align-items: center;
     }
 
-    /* Mobile: keep fixed layout, scale-to-fit (no scroll, no pinch zoom) */
+    /* Desktop: fixed layout scale-to-fit */
     .scale-wrap {
       width: 900px;
       height: 600px;
@@ -44,13 +44,33 @@
     }
 
     @media (max-width: 640px) {
-      /* Enlarge font for mobile readability */
-      .scale-wrap { font-size: 120%; }
+      /* Mobile: vertical scroll, normal font size, single-column layout */
+      body { overflow-y: auto; }
+      .slide {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        padding: 80px 20px 100px;
+      }
+      .slide.active {
+        display: block;
+      }
+      .scale-wrap {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        display: block;
+      }
+      /* Force single column on mobile */
+      .slide .grid { 
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
       .progress-container { bottom: 16px; gap: 8px; }
       .page-number { bottom: 12px; right: 14px; font-size: 12px; }
       .progress-dot { width: 9px; height: 9px; }
-      /* hint to browsers: treat taps as taps (reduce double-tap zoom behavior) */
-      body { touch-action: manipulation; }
+      body { touch-action: pan-y; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -379,13 +399,15 @@
     const pageNumber = document.getElementById('pageNumber');
     let currentSlide = 0;
 
-    // Keep a fixed layout and scale to fit viewport (esp. on mobile)
+    // Keep a fixed layout and scale to fit viewport (desktop only)
     const BASE_W = 900;
     const BASE_H = 600;
     function fitScale() {
+      // Skip scaling on mobile (let CSS handle responsive layout)
+      if (window.innerWidth <= 640) return;
+      
       const scale = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
       document.querySelectorAll('.scale-wrap').forEach((el) => {
-        // Keep layout from overflowing horizontally: absolute center + transform (translate+scale)
         el.style.transform = `translate(-50%, -50%) scale(${scale})`;
       });
     }
