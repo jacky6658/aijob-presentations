@@ -8,7 +8,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
     * { font-family: 'Noto Sans TC', sans-serif; }
-    body { background: #000; overflow: hidden; }
+    html, body { width: 100%; height: 100%; }
+    body { background: #000; overflow: hidden; overscroll-behavior: none; }
 
     .slide {
       width: 100vw;
@@ -32,6 +33,9 @@
     .scale-wrap {
       width: 1200px;
       height: 800px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
       transform-origin: center center;
       will-change: transform;
       display: flex;
@@ -379,7 +383,8 @@
     function fitScale() {
       const scale = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
       document.querySelectorAll('.scale-wrap').forEach((el) => {
-        el.style.transform = `scale(${scale})`;
+        // Keep layout from overflowing horizontally: absolute center + transform (translate+scale)
+        el.style.transform = `translate(-50%, -50%) scale(${scale})`;
       });
     }
 
