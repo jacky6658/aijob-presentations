@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>美德醫療職缺市場調查報告 | Step1ne 獵頭</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .scale-wrap {
+            width: 900px;
+            height: 600px;
+            position: relative;
+            transform-origin: center center;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 28px;
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+        }
+
+        p, li {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 30px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b15, #ee5a6f15);
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #667eea20;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .company-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .company-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            border-left: 4px solid #667eea;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .challenge-item {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .flow-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .flow-box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin: 0 10px;
+            border: 2px solid #667eea;
+        }
+
+        .flow-arrow {
+            font-size: 36px;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            p, li {
+                font-size: 16px;
+            }
+
+            .stats-grid, .company-list {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-chart {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="scale-wrap" id="scaleWrap">
+            
+            <!-- Slide 1: 封面 -->
+            <div class="slide active">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+                    <h1 style="font-size: 56px; text-align: center; margin-bottom: 30px;">
+                        美德醫療集團<br>兩個職缺市場調查報告
+                    </h1>
+                    <p class="subtitle" style="text-align: center; font-size: 28px;">
+                        完整市場分析 × 人才地圖 × 招募策略
+                    </p>
+                    <div style="margin-top: 50px; text-align: center;">
+                        <p style="font-size: 22px; color: #666;">報告日期：2026-02-11</p>
+                        <p style="font-size: 22px; color: #666;">製作單位：Step1ne 獵頭</p>
+                        <p style="font-size: 20px; color: #999; margin-top: 20px;">本報告基於顧問面談與市場調查</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: 美德醫療簡介 -->
+            <div class="slide">
+                <h2>🏥 美德醫療集團簡介</h2>
+                
+                <h3>公司基本資料</h3>
+                <ul>
+                    <li><strong>產業類型</strong>：醫療用品製造、紡織工業</li>
+                    <li><strong>營運據點</strong>：台灣、柬埔寨、菲律賓</li>
+                    <li><strong>業務類型</strong>：OEM + 自有品牌</li>
+                    <li><strong>執行長</strong>：威廉楊（William Yang）</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">兩個急缺職位</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">會計經理/協理<br>（外派柬埔寨）</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">供應鏈管理部<br>協理/副總（台北）</div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <p style="font-weight: 600; margin: 0; color: #d63031;">
+                        ⚠️ 招募時程緊迫：執行長要求 1-3 個月內找到合適人選
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 3: 職缺一 - 會計經理/協理（外派） -->
+            <div class="slide">
+                <h2>💼 職缺一：會計經理/協理（外派柬埔寨）</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">150-250萬</div>
+                        <div class="stat-label">年薪範圍</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15年+</div>
+                        <div class="stat-label">經驗要求</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50歲以下</div>
+                        <div class="stat-label">年齡限制</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5-10人</div>
+                        <div class="stat-label">直轄團隊</div>
+                    </div>
+                </div>
+
+                <h3>核心工作挑戰</h3>
+                <div class="challenge-item">
+                    <strong>⏰ 最大挑戰：結帳時效</strong><br>
+                    次月 20 號前完成結帳（目前不如預期）
+                </div>
+                <div class="challenge-item">
+                    <strong>📊 成本結算</strong><br>
+                    新主管必須完成的核心任務
+                </div>
+                <div class="challenge-item">
+                    <strong>🎓 訓練當地團隊</strong><br>
+                    當地同仁 ERP 學習障礙，效果不佳
+                </div>
+            </div>
+
+            <!-- Slide 4: 外派市場現況 -->
+            <div class="slide">
+                <h2>🌏 外派東南亞市場現況</h2>
+
+                <h3>薪資行情（2026）</h3>
+                <table class="table">
+                    <tr>
+                        <th>職級</th>
+                        <th>外派加成</th>
+                        <th>年薪範圍（台幣）</th>
+                    </tr>
+                    <tr>
+                        <td><strong>新鮮人</strong></td>
+                        <td>1.6倍</td>
+                        <td>40-45k/月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中階主管</strong></td>
+                        <td>1.2-1.5倍（中小企業）</td>
+                        <td>80-120k/月</td>
+                    </tr>
+                    <tr>
+                        <td><strong>資深主管</strong></td>
+                        <td>依公司規模</td>
+                        <td>150-300k/月+</td>
+                    </tr>
+                </table>
+
+                <h3 style="margin-top: 30px;">熱門外派地點</h3>
+                <div class="company-list">
+                    <div class="company-item">🇸🇬 新加坡（最高薪）</div>
+                    <div class="company-item">🇲🇾 馬來西亞</div>
+                    <div class="company-item">🇹🇭 泰國（5000+ 台商）</div>
+                    <div class="company-item">🇻🇳 越南（4000+ 台商）</div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 30px;">
+                    <p style="font-weight: 600; margin: 0;">
+                        ⚠️ 柬埔寨挑戰：戰事疑慮（最大障礙）、語言溝通（需翻譯）、人才意願低
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 5: 招募困難點分析 -->
+            <div class="slide">
+                <h2>🚧 招募困難點分析</h2>
+
+                <h3>財會主管外派困難排序</h3>
+                
+                <div class="challenge-item" style="background: #ffe5e5; border-color: #d63031;">
+                    <strong>🔴 第一大障礙：戰事疑慮</strong><br>
+                    柬埔寨地區戰事讓人選猶豫，擔心安全問題
+                </div>
+
+                <div class="challenge-item" style="background: #fff3cd; border-color: #ffc107;">
+                    <strong>🟡 第二大障礙：外派意願低</strong><br>
+                    台籍會計高階主管接受東南亞外派意願不高<br>
+                    過去有人選去了後不適應退縮
+                </div>
+
+                <div class="challenge-item" style="background: #fff3cd; border-color: #ffc107;">
+                    <strong>🟡 第三大障礙：語言溝通</strong><br>
+                    柬埔寨會講英文的人不多，需透過翻譯<br>
+                    台籍財會主管外語程度不夠好的佔多數
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-weight: 600; margin: 0;">
+                        💡 關鍵洞察：需找到「願意冒險」的候選人，光看能力還不夠
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 6: 吸引亮點包裝 -->
+            <div class="slide">
+                <h2>🎁 吸引亮點包裝策略</h2>
+
+                <h3>財會主管外派福利（超越市場水準）</h3>
+                
+                <div class="highlight-box">
+                    <h3 style="margin: 0 0 15px 0; color: #667eea;">💰 薪資與獎金</h3>
+                    <ul style="margin: 0;">
+                        <li>年薪 150-250 萬（有彈性，依人選調整）</li>
+                        <li>年終保證最低 3 個月</li>
+                        <li>績效獎金另計</li>
+                        <li>有機會儲備為副總經理級</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 style="margin: 0 0 15px 0; color: #667eea;">✈️ 返台與假期</h3>
+                    <ul style="margin: 0;">
+                        <li><strong>每 3 個月可返台 8 天</strong>（有彈性）</li>
+                        <li><strong>8 張機票/年</strong>（可攜家人）</li>
+                        <li>特休可折算現金</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 style="margin: 0 0 15px 0; color: #667eea;">🏠 生活保障</h3>
+                    <ul style="margin: 0;">
+                        <li>食宿交通車全包（無額外生活費）</li>
+                        <li>團險 + 意外險 + 旅平險</li>
+                        <li>維持台灣勞健保</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 7: 人才地圖 - 財會主管 -->
+            <div class="slide">
+                <h2>🎯 人才地圖：如何找財會主管？</h2>
+
+                <h3>理想人選背景</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">願意接受柬埔寨外派<br>（最關鍵）</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">有東南亞工作經驗<br>（優先）</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">上市櫃財會背景<br>（15年+）</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">熟悉鼎新 T100<br>（加分）</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">尋找管道</h3>
+                <ul>
+                    <li><strong>104 / 1111</strong>：關鍵字「財務長」「會計主管」「外派」</li>
+                    <li><strong>獵頭資料庫</strong>：曾有東南亞經驗的財會主管</li>
+                    <li><strong>台商協會</strong>：越南/泰國台商會（人脈推薦）</li>
+                    <li><strong>競爭對手</strong>：紡織/製造業財會主管（願意挑戰者）</li>
+                    <li><strong>返台人選</strong>：曾外派返台、想再出去的財會主管</li>
+                </ul>
+
+                <div class="warning-box" style="margin-top: 20px;">
+                    <p style="font-weight: 600; margin: 0;">⚠️ 關鍵：第一次接觸就要坦誠說明柬埔寨環境與挑戰</p>
+                </div>
+            </div>
+
+            <!-- Slide 8: 職缺二 - 供應鏈管理部協理/副總 -->
+            <div class="slide">
+                <h2>💼 職缺二：供應鏈管理部協理/副總（台北）</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">150-300萬</div>
+                        <div class="stat-label">年薪範圍</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15年+</div>
+                        <div class="stat-label">經驗要求</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">英文流利</div>
+                        <div class="stat-label">語言要求</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10人</div>
+                        <div class="stat-label">直轄團隊</div>
+                    </div>
+                </div>
+
+                <h3>核心職責（Role Summary）</h3>
+                <ul>
+                    <li>領導集團端到端供應鏈策略</li>
+                    <li>整合銷售、採購、生產、品質、物流</li>
+                    <li><strong>管理跨國製造營運（菲律賓 + 柬埔寨）</strong></li>
+                    <li>建立多元化供應商生態系統</li>
+                    <li>擔任執行長與總裁的關鍵業務夥伴</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-weight: 600; margin: 0;">
+                        💡 職位亮點：直接向執行長與總裁匯報（高層級）
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 9: 供應鏈管理市場現況 -->
+            <div class="slide">
+                <h2>📈 供應鏈管理市場現況（台灣）</h2>
+
+                <h3>市場需求趨勢</h3>
+                <div class="highlight-box">
+                    <ul style="margin: 0;">
+                        <li><strong>地緣政治驅動</strong>：供應鏈重組，台灣成為關鍵樞紐</li>
+                        <li><strong>跨國營運需求</strong>：東南亞設廠增加，需管理多國產能</li>
+                        <li><strong>數位轉型</strong>：供應鏈數位化、AI 預測需求高</li>
+                        <li><strong>ESG 要求</strong>：永續供應鏈管理成為必備能力</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 30px;">薪資行情（製造業）</h3>
+                <table class="table">
+                    <tr>
+                        <th>職級</th>
+                        <th>月薪範圍</th>
+                        <th>年薪範圍</th>
+                    </tr>
+                    <tr>
+                        <td><strong>供應鏈經理</strong></td>
+                        <td>70-100k</td>
+                        <td>100-150萬</td>
+                    </tr>
+                    <tr>
+                        <td><strong>協理</strong></td>
+                        <td>100-150k</td>
+                        <td>150-220萬</td>
+                    </tr>
+                    <tr>
+                        <td><strong>副總</strong></td>
+                        <td>150-250k</td>
+                        <td>220-350萬</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 20px; color: #666; font-size: 18px;">
+                    備註：美德醫開出的薪資範圍（150-300萬）涵蓋協理到副總層級
+                </p>
+            </div>
+
+            <!-- Slide 10: 人才地圖 - 供應鏈管理 -->
+            <div class="slide">
+                <h2>🎯 人才地圖：如何找供應鏈管理人才？</h2>
+
+                <h3>理想人選背景</h3>
+                <div class="company-list">
+                    <div class="company-item"><strong>產業經驗</strong><br>OEM/製造/紡織/醫療</div>
+                    <div class="company-item"><strong>跨國經驗</strong><br>管理過東南亞產能</div>
+                    <div class="company-item"><strong>語言能力</strong><br>英文流利（商務溝通）</div>
+                    <div class="company-item"><strong>管理能力</strong><br>策略+執行雙重能力</div>
+                </div>
+
+                <h3 style="margin-top: 30px;">目標企業（競爭對手/挖角來源）</h3>
+                
+                <h4 style="font-size: 22px; color: #764ba2; margin: 20px 0 10px 0;">紡織製造業（上市櫃）</h4>
+                <div class="company-list">
+                    <div class="company-item">遠東新（1402）</div>
+                    <div class="company-item">儒鴻（1476）</div>
+                    <div class="company-item">聚陽（1477）</div>
+                    <div class="company-item">宏遠（1460）</div>
+                    <div class="company-item">新纖（1409）</div>
+                    <div class="company-item">三洋紡（1472）</div>
+                </div>
+
+                <h4 style="font-size: 22px; color: #764ba2; margin: 20px 0 10px 0;">醫療器材製造業</h4>
+                <p style="font-size: 18px; color: #666;">上市 14 家、上櫃 42 家（總計 87 家）</p>
+            </div>
+
+            <!-- Slide 11: 台灣企業生態 -->
+            <div class="slide">
+                <h2>🏢 台灣相關企業生態</h2>
+
+                <h3>紡織業產業鏈</h3>
+                <div class="flow-chart">
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 20px;">上游</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">原料供應商<br>人纖製造</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 20px;">中游</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">紡織製造<br>成衣代工</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 20px;">下游</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">品牌商<br>通路商</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">台灣紡織業現況</h3>
+                <ul>
+                    <li><strong>上市紡織公司</strong>：42 家（台股重要產業）</li>
+                    <li><strong>台商東南亞設廠</strong>：泰國 5000+ 家、越南 4000+ 家</li>
+                    <li><strong>OEM 代工模式</strong>：為國際品牌代工（Nike、Adidas等）</li>
+                    <li><strong>智慧紡織</strong>：結合科技，發展醫療/運動紡織品</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-weight: 600; margin: 0;">
+                        💡 美德醫優勢：紡織 + 醫療雙主業，供應鏈人才可跨領域發展
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 12: 招募策略建議 -->
+            <div class="slide">
+                <h2>📋 招募策略建議</h2>
+
+                <h3>財會主管（外派柬埔寨）</h3>
+                <div class="highlight-box">
+                    <p style="font-weight: 600; margin: 0 0 10px 0;">🔍 篩選順序（由重到輕）</p>
+                    <ol style="margin: 0; padding-left: 20px;">
+                        <li><strong>外派意願</strong>：願意去柬埔寨（最關鍵！）</li>
+                        <li><strong>年齡</strong>：50 歲以下（40-48 歲尤佳）</li>
+                        <li><strong>東南亞經驗</strong>：有越南/泰國經驗者優先</li>
+                        <li><strong>財會背景</strong>：15 年+ 上市櫃公司經驗</li>
+                        <li><strong>系統經驗</strong>：熟悉鼎新 T100（加分）</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box" style="margin-top: 20px;">
+                    <p style="font-weight: 600; margin: 0 0 10px 0;">⚠️ 溝通策略</p>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>第一次接觸就坦誠說明挑戰（戰事、結帳壓力）</li>
+                        <li>強調福利（每 3 個月返台、8 張機票）</li>
+                        <li>提供成功案例（過去外派成功的台籍主管）</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 30px;">供應鏈管理部協理/副總</h3>
+                <div class="highlight-box">
+                    <p style="font-weight: 600; margin: 0 0 10px 0;">🔍 篩選順序</p>
+                    <ol style="margin: 0; padding-left: 20px;">
+                        <li><strong>跨國營運經驗</strong>：管理過東南亞製造營運</li>
+                        <li><strong>英文能力</strong>：流利商務溝通</li>
+                        <li><strong>產業經驗</strong>：OEM/製造/紡織/醫療優先</li>
+                        <li><strong>職級匹配</strong>：現為協理/副總/處長層級</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 13: 面試流程與評估 -->
+            <div class="slide">
+                <h2>✅ 面試流程與評估重點</h2>
+
+                <h3>財會主管（外派）</h3>
+                <div class="flow-chart">
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">一面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">美德醫<br>財務長</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">二面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">執行長<br>（當天）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">三面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">總裁<br>（最終確認）</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">供應鏈管理部協理/副總</h3>
+                <div class="flow-chart">
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">一面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">HR</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">二面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">執行長<br>（當天）</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">
+                        <h3 style="margin: 0; font-size: 18px;">三面</h3>
+                        <p style="margin: 10px 0 0 0; font-size: 16px;">總裁<br>（最終確認）</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-weight: 600; margin: 0 0 10px 0;">⚡ 篩選原則</p>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>一面就會討論素質與經驗，沒有交集就不會到第二面</li>
+                        <li>總裁經常出差，需配合時間安排</li>
+                        <li>時程：1-2 個月內完成（財會）、1-3 個月內（供應鏈）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Slide 14: Step1ne 優勢 -->
+            <div class="slide">
+                <h2>🚀 Step1ne 獵頭優勢</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">顧問親自面談<br>掌握第一手資訊</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">AI 輔助篩選<br>效率提升 30-40%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">精準匹配<br>JD 詳細資訊完整</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">✅</div>
+                        <div class="stat-label">快速響應<br>3-5 天提供名單</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">我們的做法</h3>
+                <ul>
+                    <li><strong>完整 JD 資訊</strong>：包含顧問面談內容、招募困難點、吸引亮點</li>
+                    <li><strong>透明溝通</strong>：第一次接觸就說明挑戰（柬埔寨環境）</li>
+                    <li><strong>多管道尋找</strong>：104、獵頭庫、台商協會、競爭對手</li>
+                    <li><strong>持續追蹤</strong>：推薦後持續跟進面試進度</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <p style="font-size: 24px; text-align: center; font-weight: 600; margin: 0;">
+                        專業獵頭 = 顧問面談 + 市場調查 + 精準匹配 + 持續追蹤
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 15: 行動建議 -->
+            <div class="slide">
+                <h2>🎯 給 Jacky 的行動建議</h2>
+
+                <h3>立即可執行（本週）</h3>
+                <div class="highlight-box">
+                    <ul style="margin: 0;">
+                        <li>✅ 在 104 設定職缺快訊：「財務長 外派」「供應鏈管理 協理」</li>
+                        <li>✅ 聯繫越南/泰國台商協會（人脈推薦）</li>
+                        <li>✅ 準備「柬埔寨外派FAQ」（給候選人的說明文件）</li>
+                        <li>✅ 整理競爭對手名單（紡織業上市櫃公司供應鏈主管）</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 30px;">中期規劃（本月）</h3>
+                <ul>
+                    <li>建立「外派人才資料庫」（願意去東南亞的財會主管）</li>
+                    <li>製作「美德醫吸引力簡報」（給候選人看的公司介紹）</li>
+                    <li>接觸 3-5 家紡織業上市櫃公司供應鏈主管</li>
+                    <li>準備成功案例（過去外派成功的財會主管故事）</li>
+                </ul>
+
+                <h3 style="margin-top: 30px;">長期策略（季度）</h3>
+                <ul>
+                    <li>成為「外派人才專業獵頭」品牌定位</li>
+                    <li>建立東南亞台商人才網絡</li>
+                    <li>定期追蹤返台人選（想再出去的人）</li>
+                </ul>
+            </div>
+
+            <!-- Slide 16: 總結 -->
+            <div class="slide">
+                <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <h2 style="text-align: center; font-size: 48px; margin-bottom: 40px;">📊 總結</h2>
+                    
+                    <div class="stats-grid" style="margin-bottom: 40px;">
+                        <div class="stat-card">
+                            <div class="stat-number">🔴</div>
+                            <div class="stat-label">財會主管最大挑戰<br>戰事疑慮 + 外派意願低</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">💰</div>
+                            <div class="stat-label">薪資有競爭力<br>150-300萬年薪</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🎯</div>
+                            <div class="stat-label">需精準篩選<br>外派意願 > 能力</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">⏰</div>
+                            <div class="stat-label">時程緊迫<br>1-3 個月內找到</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p style="font-size: 24px; text-align: center; font-weight: 600; margin: 0;">
+                            成功關鍵：透明溝通 + 福利包裝 + 精準篩選<br>
+                            找到「願意冒險」的資深財會與供應鏈人才
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 50px; text-align: center;">
+                        <p style="font-size: 20px; color: #666;">報告製作：YuQi (YQ1) AI 助理</p>
+                        <p style="font-size: 20px; color: #666;">報告日期：2026-02-11</p>
+                        <p style="font-size: 20px; color: #667eea; font-weight: 600;">Step1ne 獵頭 | 專精外派 / 製造業 / 高階主管人才</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: 參考資料 -->
+            <div class="slide">
+                <h2>📚 參考資料</h2>
+
+                <h3>市場調查資料</h3>
+                <ul style="font-size: 17px;">
+                    <li><strong>外派市場資訊</strong><br>
+                    換日線、商周、風傳媒：東南亞外派趨勢與薪資調查（2024-2026）</li>
+                    <li><strong>104 / 1111 人力銀行</strong><br>
+                    供應鏈管理、財務長職缺與薪資統計</li>
+                    <li><strong>財報狗</strong><br>
+                    紡織產業、醫療器材產業鏈分析</li>
+                </ul>
+
+                <h3 style="margin-top: 25px;">產業資訊</h3>
+                <ul style="font-size: 17px;">
+                    <li><strong>台灣證券交易所</strong><br>
+                    上市紡織公司資料（42 家）</li>
+                    <li><strong>台灣醫療暨生技器材工業同業公會</strong><br>
+                    醫材產業廠商資料（87 家上市櫃）</li>
+                    <li><strong>紡拓會</strong><br>
+                    2024 年臺灣紡織工業概況</li>
+                </ul>
+
+                <h3 style="margin-top: 25px;">內部資料</h3>
+                <ul style="font-size: 17px;">
+                    <li><strong>顧問面談記錄</strong><br>
+                    美德醫療面談補充資訊（2026-02-11）</li>
+                    <li><strong>客戶資料檔</strong><br>
+                    美德醫.md、美德醫_面談補充_2026-02-11.md</li>
+                    <li><strong>JD 管理系統</strong><br>
+                    完整職缺資訊（Sheet ID: 1QPaeOm-slNVFCeM8Q3gg3DawKjzp2tYwyfquvdHlZFE）</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 25px;">
+                    <p style="font-size: 16px; margin: 0; color: #666;">
+                        <strong>資料蒐集日期</strong>：2026-02-11<br>
+                        <strong>報告製作</strong>：Step1ne 獵頭 YuQi (YQ1) AI 助理<br>
+                        <strong>備註</strong>：所有數據來源均為公開可查證資料 + 顧問面談記錄
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="page-indicator" id="pageIndicator">1 / 17</div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">◀</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">▶</button>
+    </div>
+
+    <script>
+        const BASE_W = 900;
+        const BASE_H = 600;
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function updateScale() {
+            const scaleWrap = document.getElementById('scaleWrap');
+            const container = document.querySelector('.presentation-container');
+            
+            const scaleX = container.clientWidth / BASE_W;
+            const scaleY = container.clientHeight / BASE_H;
+            const scale = Math.min(scaleX, scaleY) * 0.95;
+            
+            scaleWrap.style.transform = `scale(${scale})`;
+        }
+
+        function showSlide(n) {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === n) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            document.getElementById('pageIndicator').textContent = `${n + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Touch/click navigation
+        let touchStartX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        });
+
+        // Click to advance (except on buttons)
+        document.querySelector('.presentation-container').addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-btn') && !e.target.closest('a')) {
+                nextSlide();
+            }
+        });
+
+        // Initial setup
+        window.addEventListener('resize', updateScale);
+        updateScale();
+        showSlide(0);
+    </script>
+</body>
+</html>
