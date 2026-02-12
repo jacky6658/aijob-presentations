@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外派東南亞財會主管 - 人才畫像</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2.2em;
+            color: #764ba2;
+            margin: 40px 0 30px 0;
+            border-left: 6px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        h3 {
+            font-size: 1.6em;
+            color: #667eea;
+            margin: 30px 0 15px 0;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #718096;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        ul li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            font-size: 1.1em;
+        }
+        
+        ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .action-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .action-section h2 {
+            color: white;
+            border-left-color: white;
+        }
+        
+        .action-section ul li:before {
+            color: #ffd700;
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .steps li {
+            counter-increment: step;
+            margin: 20px 0;
+            padding-left: 60px;
+        }
+        
+        .steps li:before {
+            content: counter(step);
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        .priority-high {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        
+        .priority-medium {
+            color: #ed8936;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="content">
+            <h1>🌏 外派東南亞財會主管</h1>
+            <p class="subtitle">人才畫像與搜尋策略</p>
+            
+            <!-- 職位概述 -->
+            <div class="highlight-box">
+                <h3>📋 職位概述</h3>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    負責東南亞子公司財務管理、稅務規劃、內控建置，
+                    需具備跨文化管理能力與當地法規知識，
+                    適應長期外派生活。
+                </p>
+            </div>
+            
+            <!-- 核心需求 -->
+            <h2>🎯 核心需求</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <div class="card-title">專業資格</div>
+                    <ul>
+                        <li>會計師執照（優先）</li>
+                        <li>CPA / ACCA</li>
+                        <li>財會相關碩士</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">工作經驗</div>
+                    <ul>
+                        <li>8-15 年財會經驗</li>
+                        <li>3 年以上主管經驗</li>
+                        <li>上市櫃公司佳</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <div class="card-title">國際經驗</div>
+                    <ul>
+                        <li>外派或跨國經驗</li>
+                        <li>東南亞經驗加分</li>
+                        <li>英文商務流利</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 人才畫像 -->
+            <h2>👤 理想人才畫像</h2>
+            
+            <h3>📌 背景特徵</h3>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>特徵</th>
+                    <th>優先級</th>
+                </tr>
+                <tr>
+                    <td>年齡</td>
+                    <td>35-45 歲</td>
+                    <td class="priority-medium">中</td>
+                </tr>
+                <tr>
+                    <td>學歷</td>
+                    <td>會計/財金/企管碩士</td>
+                    <td class="priority-high">高</td>
+                </tr>
+                <tr>
+                    <td>語言</td>
+                    <td>英文流利（多益 850+）</td>
+                    <td class="priority-high">高</td>
+                </tr>
+                <tr>
+                    <td>產業</td>
+                    <td>製造業、科技業、貿易</td>
+                    <td class="priority-medium">中</td>
+                </tr>
+                <tr>
+                    <td>公司規模</td>
+                    <td>100 人以上，上市櫃優先</td>
+                    <td class="priority-high">高</td>
+                </tr>
+                <tr>
+                    <td>家庭狀況</td>
+                    <td>配偶支持、子女獨立或可同行</td>
+                    <td class="priority-medium">中</td>
+                </tr>
+            </table>
+            
+            <h3>🔧 核心技能</h3>
+            <ul>
+                <li>財務報表編製與分析（IFRS）</li>
+                <li>稅務規劃（跨國稅務經驗加分）</li>
+                <li>內部控制與稽核</li>
+                <li>ERP 系統（SAP / Oracle）</li>
+                <li>預算管理與成本控制</li>
+                <li>資金調度與財務規劃</li>
+            </ul>
+            
+            <h3>🌟 軟實力</h3>
+            <ul>
+                <li>跨文化溝通與管理能力</li>
+                <li>適應力強，願意接受挑戰</li>
+                <li>獨立作業與問題解決能力</li>
+                <li>團隊建置與人才培育</li>
+                <li>抗壓性高，彈性應變</li>
+            </ul>
+            
+            <!-- 搜尋策略 -->
+            <div class="action-section">
+                <h2>🔍 下一步：搜尋策略</h2>
+                
+                <h3 style="color: white; margin-top: 30px;">方法 1：104 人力銀行進階搜尋</h3>
+                <ul class="steps">
+                    <li>
+                        <strong>關鍵字組合</strong><br>
+                        「財務主管 + 外派」「CFO + 東南亞」「財會經理 + 國際」
+                    </li>
+                    <li>
+                        <strong>篩選條件</strong><br>
+                        職務：財會主管 | 年資：8年以上 | 語言：英文-精通
+                    </li>
+                    <li>
+                        <strong>目標公司</strong><br>
+                        有東南亞據點的台商：鴻海、台達電、正新、聯發科等
+                    </li>
+                </ul>
+                
+                <h3 style="color: white; margin-top: 30px;">方法 2：LinkedIn 獵頭搜尋</h3>
+                <ul class="steps">
+                    <li>
+                        <strong>Boolean 搜尋</strong><br>
+                        ("CFO" OR "Finance Director" OR "Financial Controller") AND ("Taiwan" OR "Taipei") AND ("Southeast Asia" OR "Vietnam" OR "Thailand")
+                    </li>
+                    <li>
+                        <strong>篩選器</strong><br>
+                        Location: Taiwan | Industry: Manufacturing, Technology | Title: Finance Manager, CFO
+                    </li>
+                    <li>
+                        <strong>關注對象</strong><br>
+                        目前在東南亞工作的台籍財會主管（回台意願高）
+                    </li>
+                </ul>
+                
+                <h3 style="color: white; margin-top: 30px;">方法 3：人脈推薦</h3>
+                <ul class="steps">
+                    <li>
+                        <strong>四大會計師事務所</strong><br>
+                        PwC, Deloitte, KPMG, EY 的資深經理/合夥人
+                    </li>
+                    <li>
+                        <strong>產業協會</strong><br>
+                        台灣CFO協會、會計師公會、外貿協會
+                    </li>
+                    <li>
+                        <strong>校友網絡</strong><br>
+                        政大、台大、清華 EMBA 財金相關系所
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 推薦管道 -->
+            <h2>📍 推薦搜尋管道優先級</h2>
+            
+            <div class="grid">
+                <div class="card" style="border-color: #e53e3e; border-width: 3px;">
+                    <div class="card-title" style="color: #e53e3e;">🔥 P0 - 立刻執行</div>
+                    <ul>
+                        <li>104 進階搜尋（已有外派經驗者）</li>
+                        <li>LinkedIn 挖角東南亞台籍財會主管</li>
+                        <li>四大會計師事務所轉職者</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="border-color: #ed8936; border-width: 3px;">
+                    <div class="card-title" style="color: #ed8936;">⚡ P1 - 本週完成</div>
+                    <ul>
+                        <li>台商東南亞協會會員</li>
+                        <li>EMBA 校友推薦</li>
+                        <li>獵頭公司合作</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="border-color: #48bb78; border-width: 3px;">
+                    <div class="card-title" style="color: #48bb78;">✅ P2 - 持續經營</div>
+                    <ul>
+                        <li>CFO 協會活動</li>
+                        <li>會計師公會講座</li>
+                        <li>產業論壇人脈</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 接觸話術 -->
+            <h2>💬 接觸話術範例</h2>
+            <div class="highlight-box">
+                <h3>LinkedIn 訊息模板</h3>
+                <p style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px; font-size: 1.05em; line-height: 1.8;">
+                    Hi [Name]，<br><br>
+                    
+                    我是 Step1ne 的獵頭顧問 Jacky，專注於跨國財會人才招募。<br><br>
+                    
+                    注意到您在 [公司] 的豐富財會經驗，以及您對東南亞市場的了解，
+                    目前有一個外派越南/泰國的財務總監機會，
+                    負責建置當地財會體系，年薪範圍 200-300 萬 + 外派津貼。<br><br>
+                    
+                    不知您是否有興趣了解更多細節？方便的話可以安排 15 分鐘電話聊聊。<br><br>
+                    
+                    Best regards,<br>
+                    Jacky Chen | Step1ne Recruitment
+                </p>
+            </div>
+            
+            <!-- 成功關鍵 -->
+            <h2>🎯 成功關鍵因素</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <div class="card-title">薪資競爭力</div>
+                    <p>台灣薪資 × 1.3-1.5 + 外派津貼 + 子女教育</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <div class="card-title">生活支援</div>
+                    <p>住宿補助、配偶工作、醫療保險、返台機票</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">職涯發展</div>
+                    <p>區域財務長路徑、股權激勵、國際歷練</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 2px solid #e2e8f0;">
+                <p style="color: #718096; font-size: 0.95em;">
+                    製作：Jacky Chen x YuQi 🦞<br>
+                    Step1ne Recruitment | 2026-02-12
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
