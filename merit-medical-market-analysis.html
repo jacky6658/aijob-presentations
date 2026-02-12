@@ -126,8 +126,28 @@
             padding: 60px 80px;
             display: none;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             animation: fadeIn 0.5s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .slide::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .slide::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        .slide::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 5px;
+        }
+        
+        .slide::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
         }
         
         .slide.active {
@@ -328,7 +348,7 @@
         }
         
         .cover {
-            justify-content: center;
+            justify-content: center !important;
             align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -858,16 +878,24 @@
             }
         });
 
-        // Click navigation (僅桌面版)
+        // Click navigation (僅桌面版，點擊邊緣區域翻頁)
         if (window.innerWidth > 768) {
             document.querySelector('.container').addEventListener('click', function(e) {
                 if (e.target.classList.contains('nav-btn')) return;
+                
+                // 如果點擊的是內容區域（文字、表格等），不翻頁
+                if (e.target.closest('h1, h2, h3, p, li, table, ul, ol, .highlight, .stats-grid, .two-column')) {
+                    return;
+                }
+                
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
-                if (x > rect.width / 2) {
-                    nextSlide();
-                } else {
+                const edgeThreshold = 100; // 只有點擊左右邊緣 100px 才翻頁
+                
+                if (x < edgeThreshold) {
                     prevSlide();
+                } else if (x > rect.width - edgeThreshold) {
+                    nextSlide();
                 }
             });
         }
