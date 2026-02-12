@@ -171,6 +171,11 @@
             margin-top: 0;
         }
         
+        .highlight p,
+        .highlight li {
+            color: white;
+        }
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -374,6 +379,10 @@
     <div class="container">
         <!-- Slide 1: Cover -->
         <div class="slide active cover">
+            <!-- Logo 占位符 - 等待添加 -->
+            <div style="margin-bottom: 40px;">
+                <img id="company-logo" src="" alt="Step1ne Logo" style="max-width: 200px; display: none;">
+            </div>
             <h1>📊 2026 東南亞外派人才市場白皮書</h1>
             <p style="font-size: 28px; font-weight: 600; margin-top: 40px;">財會主管 × 供應鏈管理</p>
             <p style="font-size: 22px; margin-top: 20px;">跨國企業人才招募市場洞察報告</p>
@@ -583,63 +592,6 @@
             </div>
         </div>
 
-        <!-- Slide 6: 候選人畫像 -->
-        <div class="slide">
-            <h2>👤 財會主管候選人畫像</h2>
-            <h3>理想候選人特徵（柬埔寨外派職位）</h3>
-            <div class="two-column">
-                <div class="column-box">
-                    <p><strong>📊 背景條件</strong></p>
-                    <ul style="font-size: 16px;">
-                        <li>年齡：35-50 歲（最佳 40-48 歲）</li>
-                        <li>經驗：15 年以上財會主管經驗</li>
-                        <li>背景：上市櫃公司或大型會計師事務所</li>
-                        <li>證照：CPA 或國際會計認證尤佳</li>
-                    </ul>
-                </div>
-                <div class="column-box">
-                    <p><strong>🌟 軟實力</strong></p>
-                    <ul style="font-size: 16px;">
-                        <li>英文流利（多國帳務需求）</li>
-                        <li>適應力強（曾有海外工作經驗）</li>
-                        <li>家庭支持（配偶同意或子女已獨立）</li>
-                        <li>追求挑戰（願意離開舒適圈）</li>
-                    </ul>
-                </div>
-            </div>
-            <h3>候選人來源與招募管道</h3>
-            <table class="comparison-table">
-                <tr>
-                    <th>來源</th>
-                    <th>優勢</th>
-                    <th>適用情境</th>
-                </tr>
-                <tr>
-                    <td>上市櫃公司財會部門</td>
-                    <td>經驗完整、熟悉國際會計準則</td>
-                    <td>尋找具 IFRS 實務經驗者</td>
-                </tr>
-                <tr>
-                    <td>四大會計師事務所</td>
-                    <td>專業扎實、適應力強</td>
-                    <td>尋找願意轉產業的資深經理</td>
-                </tr>
-                <tr>
-                    <td>已在東南亞工作的台幹</td>
-                    <td>外派經驗豐富、適應快</td>
-                    <td>挖角競爭對手或轉換國家</td>
-                </tr>
-                <tr>
-                    <td>104/LinkedIn 主動應徵</td>
-                    <td>外派意願明確</td>
-                    <td>鎖定有「願意外派」標籤者</td>
-                </tr>
-            </table>
-            <div class="source-box">
-                <strong>資料來源：</strong> 104 人力銀行「外派財會主管職缺與應徵者分析」(2026)、LinkedIn「台灣財會專業人士外派趨勢」(2025)
-            </div>
-        </div>
-
         <!-- Slide 7: 台灣供應鏈管理人才市場 -->
         <div class="slide">
             <h2>🔗 台灣供應鏈管理人才市場</h2>
@@ -679,63 +631,6 @@
             </ul>
             <div class="source-box">
                 <strong>資料來源：</strong> Michael Page「Taiwan Salary Guide 2026 - Supply Chain」、104 人力銀行「供應鏈管理職缺趨勢」(2026)、政大商學院「供應鏈管理學分學程市場調查」(2025)
-            </div>
-        </div>
-
-        <!-- Slide 8: 供應鏈 VP 候選人畫像 -->
-        <div class="slide">
-            <h2>👤 供應鏈 VP 候選人畫像</h2>
-            <h3>理想候選人特徵（台北職位）</h3>
-            <div class="two-column">
-                <div class="column-box">
-                    <p><strong>📊 核心能力</strong></p>
-                    <ul style="font-size: 16px;">
-                        <li>15 年以上供應鏈管理經驗</li>
-                        <li>跨國營運管理經驗（東南亞 / 中國）</li>
-                        <li>熟悉 S&OP、採購策略、品質管理</li>
-                        <li>ERP/SAP 系統操作經驗</li>
-                    </ul>
-                </div>
-                <div class="column-box">
-                    <p><strong>🏢 產業背景</strong></p>
-                    <ul style="font-size: 16px;">
-                        <li>紡織業（儒鴻、聚陽、年興）</li>
-                        <li>醫療器材 OEM（康統、台微醫）</li>
-                        <li>電子製造業（鴻海、廣達、和碩）</li>
-                        <li>傳產製造業（食品、化工、建材）</li>
-                    </ul>
-                </div>
-            </div>
-            <h3>關鍵技能與認證</h3>
-            <table class="comparison-table">
-                <tr>
-                    <th>技能類別</th>
-                    <th>具體要求</th>
-                    <th>加分項目</th>
-                </tr>
-                <tr>
-                    <td>系統能力</td>
-                    <td>ERP (SAP/Oracle)、Excel 進階</td>
-                    <td>Power BI、Tableau</td>
-                </tr>
-                <tr>
-                    <td>語言能力</td>
-                    <td>英文流利（多國供應商溝通）</td>
-                    <td>第二外語（越南語、泰語）</td>
-                </tr>
-                <tr>
-                    <td>專業認證</td>
-                    <td>CPIM、CSCP、Six Sigma</td>
-                    <td>PMP、ISO 認證稽核員</td>
-                </tr>
-                <tr>
-                    <td>管理經驗</td>
-                    <td>團隊管理 10 人以上</td>
-                    <td>跨部門專案領導經驗</td>
-                </tr>
-            </table>
-            <div class="source-box">
-                <strong>資料來源：</strong> APICS「供應鏈專業認證趨勢報告」(2025)、104 人力銀行「供應鏈 VP 職缺技能分析」(2026)、PTT Salary 板「供應鏈職涯分享」(2023-2025)
             </div>
         </div>
 
@@ -915,13 +810,13 @@
             <button class="nav-btn" onclick="prevSlide()">← 上一頁</button>
             <button class="nav-btn" onclick="nextSlide()">下一頁 →</button>
         </div>
-        <div class="slide-number" id="slideNumber">1 / 12</div>
+        <div class="slide-number" id="slideNumber">1 / 10</div>
     </div>
 
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
+        const totalSlides = 10;
 
         function showSlide(n) {
             slides[currentSlide].classList.remove('active');
