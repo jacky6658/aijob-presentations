@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f7fa;
             overflow: hidden;
             height: 100vh;
             display: flex;
@@ -53,12 +53,12 @@
         }
         
         .slide::-webkit-scrollbar-thumb {
-            background: #667eea;
+            background: #2563eb;
             border-radius: 5px;
         }
         
         .slide::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
+            background: #1e40af;
         }
         
         .slide.active {
@@ -90,39 +90,41 @@
         }
         
         .nav-btn {
-            background: rgba(255,255,255,0.8);
+            background: #1e40af;
             border: none;
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            color: #667eea;
+            color: white;
             transition: all 0.3s;
         }
         
         .nav-btn:hover {
-            background: white;
+            background: #2563eb;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         h1 {
             font-size: 48px;
-            color: #667eea;
+            color: #1e3a8a;
             margin-bottom: 20px;
             font-weight: 800;
         }
         
         h2 {
             font-size: 36px;
-            color: #333;
+            color: #1e40af;
             margin-bottom: 30px;
             font-weight: 700;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
         }
         
         h3 {
             font-size: 28px;
-            color: #667eea;
+            color: #1e40af;
             margin: 30px 0 15px 0;
             font-weight: 600;
         }
@@ -152,12 +154,12 @@
             content: "●";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #2563eb;
             font-size: 20px;
         }
         
         .highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -177,17 +179,18 @@
         }
         
         .stat-box {
-            background: #f8f9fa;
+            background: #ffffff;
             padding: 25px;
             border-radius: 12px;
             text-align: center;
-            border: 2px solid #667eea;
+            border: 2px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .stat-number {
             font-size: 42px;
             font-weight: 800;
-            color: #667eea;
+            color: #1e40af;
             margin-bottom: 10px;
         }
         
@@ -204,7 +207,7 @@
         }
         
         .comparison-table th {
-            background: #667eea;
+            background: #1e40af;
             color: white;
             padding: 15px;
             text-align: left;
@@ -229,16 +232,17 @@
         }
         
         .column-box {
-            background: #f8f9fa;
+            background: #ffffff;
             padding: 25px;
             border-radius: 12px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .cover {
             justify-content: center !important;
             align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             color: white;
             text-align: center;
         }
@@ -301,7 +305,7 @@
             }
             
             .slide::-webkit-scrollbar-thumb {
-                background: #667eea;
+                background: #2563eb;
                 border-radius: 4px;
             }
             
